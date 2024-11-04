@@ -12,7 +12,7 @@ function get_umo() {
     # macos universal2
     curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157200402/download
     echo "70d155a3e89ba5a99b35d65412f7195d2bdf18cfbbfa8ab028b813d7cb14d2c8ca6fb03642fac0320cb73adce7ac5c0aeee328c13bd727c41b31c9b82612fbf2  umo-macos.tar.gz" | sha512sum -c
-    bsdtar xf umo-macos.tar.gz
+    tar xf umo-macos.tar.gz
     mv umo/umo* momw-tools-pack-macos/
 
     # windows
@@ -104,7 +104,7 @@ function get_groundcoverify() {
 
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-macos.tar.gz?job=macos_arm64"
     echo "e558e3c7448f799ec5bc2fe96c5a25ca9373be7617bf540ce814c4193c949f5814296194785b48449f43ede7ab7eee70ee10d449b04bb82e4f8128e55350ed0b  groundcoverify-macos.tar.gz" | sha512sum -c
-    bsdtar xf groundcoverify-macos.tar.gz
+    tar xf groundcoverify-macos.tar.gz
     mv groundcoverify momw-tools-pack-macos/
 
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-win.zip?job=windows"

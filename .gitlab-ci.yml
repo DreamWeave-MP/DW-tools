@@ -13,7 +13,7 @@ make:
   image: ${img}
   stage: build
   script:
-  - apt update && apt install -y --force-yes curl libarchive-tools unzip zip
+  - apt update && apt install -y --force-yes curl unzip zip
   - ./build.sh
   cache:
     paths:
