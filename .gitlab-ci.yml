@@ -14,7 +14,7 @@ make:
   stage: build
   script:
   - apt update && apt install -y --force-yes libarchive-tools unzip zip
-  - ./get-pkgs.sh
+  - ./build.sh
   cache:
     paths:
       - /var/cache/apt/archives
