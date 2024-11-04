@@ -1,0 +1,14 @@
+momw-configurator-*
+momw-configurator.exe*
+*.cfg
+README.html
+*.zip
+*.zip.sha*sum.txt
+version.txt
+web/build/
+web/site/*.md
+web/sha256sums
+web/soupault-*-linux-x86_64*
+*.omwaddon
+*~
+web/site/index.html
