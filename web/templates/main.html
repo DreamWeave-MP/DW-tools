@@ -18,25 +18,24 @@
     <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)" href="/css/site-dark.css">
   </head>
   <body>
+    <div id="package-names" data-linux="momw-tools-pack-linux.tar.gz" data-macos="momw-tools-pack-macos.zip" data-windows="momw-tools-pack-windows.zip"></div>
     <div class="center"><img src="/img/title.png" title="MOMW Configurator" /></div>
     <noscript>
       <p class="bold center">
         Please enable Javascript for this page, Gitlab itself also requires Javascript in order to even look at packages. Sorry :(
       </p>
     </noscript>
-    <!--
-         <p class="center">Latest version: <span class="bold" id="latestVersion">...</span></p>
-         <div id="links" class="bold center">
-         <a class="button" id="download" title="Download the latest release of MOMW Configurator">Download</a>
-         </div>
-    -->
-    <!-- <div id="shas" class="bold center">
-         <a id="sha256" title="Verify the integrity of the file you downloaded">sha256</a>/<a id="sha512" title="Verify the integrity of the file you downloaded">sha512</a>
-         </div> -->
-    <!-- <div class="bold center" id="errors"></div> -->
-    <!--
-         <div class="center" id="dev-build">
-         <a style="font-size: 1.5em;" id="download" href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack.zip?job=make" title="Dev builds may have newer features, but they will be less tested">Click to download a dev build</a>  --> <!-- (<a id="sha256" href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack.zip.sha256sum.txt?job=make" title="Verify the integrity of the file you downloaded">sha256</a>/<a id="sha512" href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack.zip.sha512sum.txt?job=make" title="Verify the integrity of the file you downloaded">sha512</a>) -->
+    <p class="center">Latest version: <span class="bold" id="latestVersion">...</span></p>
+    <div id="links" class="bold center">
+      <a class="button" id="download-linux" title="Download the latest release of MOMW Tools Pack">Linux</a>
+      <a class="button" id="download-macos" title="Download the latest release of MOMW Tools Pack">macOS</a>
+      <a class="button" id="download-windows" title="Download the latest release of MOMW Tools Pack">Windows</a>
+    </div>
+    <div class="center" id="dev-build">
+      <p class="bold">
+        Dev Build Downloads:
+      </p>
+      <a href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack-linux.tar.gz?job=make" title="Dev builds may have newer features, but they will be less tested">Linux</a> | <a href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack-macos.zip?job=make" title="Dev builds may have newer features, but they will be less tested">macOS</a> | <a href="https://gitlab.com/api/v4/projects/modding-openmw%2Fmomw-tools-pack/jobs/artifacts/master/raw/momw-tools-pack-windows.zip?job=make" title="Dev builds may have newer features, but they will be less tested">Windows</a>
     </div>
     <nav class="center" id="nav">
       <a href="/">README</a> | <a href="/changelog/">Changelog</a>
