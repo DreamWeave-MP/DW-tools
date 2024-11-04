@@ -13,7 +13,7 @@ make:
   image: ${img}
   stage: build
   script:
-  - apt update && apt install -y --force-yes bsdtar unzip zip
+  - apt update && apt install -y --force-yes libarchive-tools unzip zip
   - ./get-pkgs.sh
   cache:
     paths:
