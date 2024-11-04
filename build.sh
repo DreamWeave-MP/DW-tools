@@ -61,7 +61,7 @@ function get_delta() {
     # macos
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
     echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
-    unzip -qq delta-plugin-${delta_version}-darwin-amd64.zip
+    unzip -oqq delta-plugin-${delta_version}-darwin-amd64.zip
     mv delta_plugin README.md LICENSE CHANGELOG.md THIRDPARTY.html momw-tools-pack-macos/
 
     # windows
@@ -73,7 +73,7 @@ function get_delta() {
     # linux
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-linux-amd64.zip
     echo "9ecbf451065f90cdaa77abd4965bcf0c158f12c3fdb9c2286e72895c8a05f32c6ea37cd00ffee222fd87bb79087f6aa37c4872aa38aef93d67a2b09a44df29c3  delta-plugin-0.22.0-linux-amd64.zip" | sha512sum -c
-    unzip -qq delta-plugin-${delta_version}-linux-amd64.zip
+    unzip -oqq delta-plugin-${delta_version}-linux-amd64.zip
     mv delta_plugin README.md LICENSE CHANGELOG.md THIRDPARTY.html momw-tools-pack-linux/
 }
 
