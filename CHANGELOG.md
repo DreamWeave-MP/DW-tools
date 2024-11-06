@@ -4,4 +4,4 @@
 
 * Initial release
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/31938052)
