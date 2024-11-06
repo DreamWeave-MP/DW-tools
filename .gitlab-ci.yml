@@ -54,6 +54,6 @@ upload:
   rules:
     - if: $CI_COMMIT_TAG
   script:
-    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ${pkg_name} "${pkg_url}/momw-tools-pack-linux.tar.gz"'
-    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ${pkg_name} "${pkg_url}/momw-tools-pack-macos.zip"'
-    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ${pkg_name} "${pkg_url}/momw-tools-pack-windows.zip"'
+    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file momw-tools-pack-linux.tar.gz "${pkg_url}/momw-tools-pack-linux.tar.gz"'
+    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file momw-tools-pack-macos.zip "${pkg_url}/momw-tools-pack-macos.zip"'
+    - 'curl -s --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file momw-tools-pack-windows.zip "${pkg_url}/momw-tools-pack-windows.zip"'
