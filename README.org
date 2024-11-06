@@ -13,7 +13,7 @@ Includes:
 - [[https://gitlab.com/bmwinger/groundcoverify#groundcoverify][Groundcoverify!]]
 - [[https://modding-openmw.gitlab.io/openmw-validator/][OpenMW-Validator]]
 
-Intended to be used with [[https://beta.modding-openmw.com/guides/auto/][the Modding-OpenMW.com Automatic Installation Guide]].
+Intended to be used with [[https://modding-openmw.com/guides/auto/][the Modding-OpenMW.com Automatic Installation Guide]].
 
 ** Installation
 
