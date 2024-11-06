@@ -6,42 +6,43 @@ _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
 function get_umo() {
-    # v0.4.7
+    # v0.4.13
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157200382/download
-    echo "8a5174ed625e4321e4a19b39d89241c828d35f5016ab625f47063c13ab63c17b00e8a0e2a599cf1004b9c63012c26dc7534330098913247f5260733983d1e63f  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157997238/download
+    echo "fec2dd737d9e9561ff4f0e52725d9121c20e9963a76c2f18f6daa27c42eb2a049bc885dcb5defa6f04cd969779202907ed3d70874b7951a4f299b54664db93c0  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157200402/download
-    echo "70d155a3e89ba5a99b35d65412f7195d2bdf18cfbbfa8ab028b813d7cb14d2c8ca6fb03642fac0320cb73adce7ac5c0aeee328c13bd727c41b31c9b82612fbf2  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157997302/download
+    echo "6de0c2e91d5ee195a68ef1c05075f857d68505645b27f55ce99a2d6c15f32ef08185cb009d35ef7c82b805ac8aec992055da7ad32717bf1ae85b5159297089f5  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/157200413/download
-    echo "f930863df8f83e640d2812d73cbf494eaa49b6a4a1fb68d418352f021683d580fa45cbb1d101b8665c9ce181652d46bcdb865b5021986829f8fe1e0605673eab  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/157997347/download
+    echo "400d6b6cd7f31b8963cd8deba4c2722ac02f41711e9a04de6d6e3ef9a8bb5c2fc54ab2337f7bb5e2f43af1dd5039b5e64cf26a232daeedf9190b8e654f8323ae  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
 
     curl -sL -o README-umo.org https://gitlab.com/modding-openmw/umo/-/raw/master/README.org
-    cp README-umo.org ${_linux}/
-    cp README-umo.org ${_macos}/
-    cp README-umo.org ${_windows}/
+    cp README-umo.org ${_linux}/Readmes/
+    cp README-umo.org ${_macos}/Readmes/
+    cp README-umo.org ${_windows}/Readmes/
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/157719224/download
-    echo "bec245e575d4650f20aedfa7389b66b02e9f62a3960c779a84a1d31bcbd7237f9a6b8c49b8d5b3cdece401b4cedd52701ca2ed098e79581a511ee421af6cbfb1  configurator.zip" | sha512sum -c
+    # v1.1
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/158005741/download
+    echo "05b29ba24796416976b3dbd106f185ddfa515971a8c89a2613514f1c248dbaf829c378c5a2c1bc9ba2fa8e1fc3536daf150762a9de12eaa3d6354d7c084cfa99  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
     mv momw-configurator/momw-configurator.exe ${_windows}/
-    cp momw-configurator/README.org ${_linux}/README-MOMW-Configurator.org
-    cp momw-configurator/README.org ${_macos}/README-MOMW-Configurator.org
-    cp momw-configurator/README.org ${_windows}/README-MOMW-Configurator.org
+    cp momw-configurator/README.org ${_linux}/Readmes/README-MOMW-Configurator.org
+    cp momw-configurator/README.org ${_macos}/Readmes/README-MOMW-Configurator.org
+    cp momw-configurator/README.org ${_windows}/Readmes/README-MOMW-Configurator.org
 }
 
 function get_tes3cmd() {
@@ -49,22 +50,24 @@ function get_tes3cmd() {
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz?job=build_linux"
     echo "f07ff02343b8dbf3b3ed3791bfdced30fa4edcffde9d682d1ec062d454d5a489c36097bff41147b578042848dd3e512af52414d568de71b0eb5fad01f78570b1  tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz" | sha512sum -c
     tar xvf tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz
-    mv tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64 Docs Readme.txt ${_linux}/
+    mv tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64 ${_linux}/tes3cmd
+    mv Docs ${_linux}/Readmes/Docs-TES3CMD
+    mv Readme.txt ${_linux}/Readmes/Readme-TES3CMD.txt
 
     # windows
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2-win.zip?job=build_win"
     echo "06fdb7620a00d7402985495901a52ae50228e8e75d314740573c1b3dc3e4daa2ce3b69b04f34862857f880ddd11d42d5363a41bf05fa58651f2ce5e0949d6aee  tes3cmd.0.40-PRE-RELEASE-2-win.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -qq tes3cmd.0.40-PRE-RELEASE-2-win.zip || printf ""
-    mv tes3cmd.0.40-PRE-RELEASE-2/tes3cmd.0.40-PRE-RELEASE-2.exe ${_windows}/
-    cp -r ${_linux}/Docs ${_linux}/Readme.txt ${_windows}/
+    mv tes3cmd.0.40-PRE-RELEASE-2/tes3cmd.0.40-PRE-RELEASE-2.exe ${_windows}/tes3cmd.exe
+    cp -r ${_linux}/Readmes/Docs-TES3CMD ${_linux}/Readmes/Readme-TES3CMD.txt ${_windows}/Readmes/
 
     # macos
     curl -sLO https://modding-openmw.com/files/tes3cmd-macOS-x86_64.zip
     echo "e1628b6006189eb651f9569e207752f84d56a37cbddc39a96949ec4594f1302ea5ea9a096d469c616d365283593cc1bc8774b963f31f22adbbb869abdfaea4c5  tes3cmd-macOS-x86_64.zip" | sha512sum -c
     unzip -qq tes3cmd-macOS-x86_64.zip
-    mv tes3cmd-macOS-x86_64 ${_macos}/
-    cp -r ${_linux}/Docs ${_linux}/Readme.txt ${_macos}/
+    mv tes3cmd-macOS-x86_64 ${_macos}/tes3cmd
+    cp -r ${_linux}/Readmes/Docs-TES3CMD ${_linux}/Readmes/Readme-TES3CMD.txt ${_macos}/Readmes/
 }
 
 function get_delta() {
@@ -74,24 +77,31 @@ function get_delta() {
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
     echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-${delta_version}-darwin-amd64.zip
-    mv delta_plugin README.md LICENSE CHANGELOG.md THIRDPARTY.html ${_macos}/
+    mv delta_plugin ${_macos}/
+    mv README.md ${_macos}/Readmes/README-DeltaPlugin.md
+    mv LICENSE ${_macos}/Readmes/LICENSE-DeltaPlugin
+    mv CHANGELOG.md ${_macos}/Readmes/CHANGELOG-DeltaPlugin.md
+    mv THIRDPARTY.html ${_macos}/Readmes/THIRDPARTY-DeltaPlugin.html
 
     # windows
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-windows-amd64.zip
     echo "b2e49f54e37706b30d3d346eb10e5e3852ab0680495f7cf074ba18d71c5cf7e527f596b4e2ba517bf370869a5f51b6b86ece9ac2e24707afb82bd001d6479b31  delta-plugin-0.22.0-windows-amd64.zip" | sha512sum -c
     unzip -qq delta-plugin-${delta_version}-windows-amd64.zip
-    mv delta_plugin.exe README.md LICENSE CHANGELOG.md THIRDPARTY.html ${_windows}/
+    mv delta_plugin.exe ${_windows}/
+    mv README.md ${_windows}/Readmes/README-DeltaPlugin.md
+    mv LICENSE ${_windows}/Readmes/LICENSE-DeltaPlugin
+    mv CHANGELOG.md ${_windows}/Readmes/CHANGELOG-DeltaPlugin.md
+    mv THIRDPARTY.html ${_windows}/Readmes/THIRDPARTY-DeltaPlugin.html
 
     # linux
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-linux-amd64.zip
     echo "9ecbf451065f90cdaa77abd4965bcf0c158f12c3fdb9c2286e72895c8a05f32c6ea37cd00ffee222fd87bb79087f6aa37c4872aa38aef93d67a2b09a44df29c3  delta-plugin-0.22.0-linux-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-${delta_version}-linux-amd64.zip
-    mv delta_plugin README.md LICENSE CHANGELOG.md THIRDPARTY.html ${_linux}/
-
-    curl -sL -o README-delta-plugin.md https://gitlab.com/bmwinger/delta-plugin/-/raw/master/README.md
-    cp README-delta-plugin.md ${_linux}/
-    cp README-delta-plugin.md ${_macos}/
-    cp README-delta-plugin.md ${_windows}/
+    mv delta_plugin ${_linux}/
+    mv README.md ${_linux}/Readmes/README-DeltaPlugin.md
+    mv LICENSE ${_linux}/Readmes/LICENSE-DeltaPlugin
+    mv CHANGELOG.md ${_linux}/Readmes/CHANGELOG-DeltaPlugin.md
+    mv THIRDPARTY.html ${_linux}/Readmes/THIRDPARTY-DeltaPlugin.html
 }
 
 function get_lightfixes() {
@@ -113,9 +123,9 @@ function get_lightfixes() {
     mv windows/* ${_windows}/
 
     curl -sL -o README-waza-lightfixes.md https://raw.githubusercontent.com/glassmancody/waza_lightfixes/refs/heads/master/README.md
-    cp README-waza-lightfixes.md ${_linux}/
-    cp README-waza-lightfixes.md ${_macos}/
-    cp README-waza-lightfixes.md ${_windows}/
+    cp README-waza-lightfixes.md ${_linux}/Readmes/
+    cp README-waza-lightfixes.md ${_macos}/Readmes/
+    cp README-waza-lightfixes.md ${_windows}/Readmes/
 }
 
 function get_groundcoverify() {
@@ -136,9 +146,9 @@ function get_groundcoverify() {
     mv groundcoverify/groundcoverify.exe ${_windows}/
 
     curl -sL -o README-groundcoverify.md https://gitlab.com/bmwinger/groundcoverify/-/raw/main/README.md
-    cp README-groundcoverify.md ${_linux}/
-    cp README-groundcoverify.md ${_macos}/
-    cp README-groundcoverify.md ${_windows}/
+    cp README-groundcoverify.md ${_linux}/Readmes/
+    cp README-groundcoverify.md ${_macos}/Readmes/
+    cp README-groundcoverify.md ${_windows}/Readmes/
 }
 
 function get_validator() {
@@ -150,15 +160,22 @@ function get_validator() {
     mv openmw-validator/openmw-validator.exe ${_windows}/
 
     curl -sL -o README-openmw-validator.md https://gitlab.com/modding-openmw/openmw-validator/-/raw/master/README.md
-    cp README-openmw-validator.md ${_linux}/
-    cp README-openmw-validator.md ${_macos}/
-    cp README-openmw-validator.md ${_windows}/
+    cp README-openmw-validator.md ${_linux}/Readmes/
+    cp README-openmw-validator.md ${_macos}/Readmes/
+    cp README-openmw-validator.md ${_windows}/Readmes/
 }
 
 function main() {
-    mkdir ${_linux}
-    mkdir ${_macos}
-    mkdir ${_windows}
+    mkdir -p ${_linux}/Readmes
+    mkdir -p ${_macos}/Readmes
+    mkdir -p ${_windows}/Readmes
+
+    cp README.org ${_linux}/Readmes/README-MOMW-Tools-Pack.org
+    cp README.org ${_macos}/Readmes/README-MOMW-Tools-Pack.org
+    cp README.org ${_windows}/Readmes/README-MOMW-Tools-Pack.org
+    cp CHANGELOG.md ${_linux}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
+    cp CHANGELOG.md ${_macos}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
+    cp CHANGELOG.md ${_windows}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
 
     get_umo
     get_configurator
