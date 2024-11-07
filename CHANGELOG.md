@@ -1,5 +1,11 @@
 ## MOMW Tools pack Changelog
 
+#### 1.2
+
+* Downgraded umo: 0.4.13 -> 0.4.11
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+
 #### 1.1
 
 * Updated umo: 0.4.7 -> 0.4.13
