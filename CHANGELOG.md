@@ -7,7 +7,7 @@
 * Moved READMEs and other docs into a "Readmes" subfolder
 * Gave the `tes3cmd` binary a shorter name for ease of use
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32002616)
 
 #### 1.0
 
