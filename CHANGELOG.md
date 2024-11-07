@@ -4,7 +4,7 @@
 
 * Downgraded umo: 0.4.13 -> 0.4.11
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32006816)
 
 #### 1.1
 
