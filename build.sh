@@ -6,22 +6,22 @@ _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
 function get_umo() {
-    # v0.4.13
+    # v0.4.15
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157704194/download
-    echo "fcc235cf03295006cf6dfb983bc35dc7e649ab8f24a90f2299e463a1b9302557bddc9a95c4f5611bf88a1ae494d58a727a2e8f4b7e9dd065d7c5d3f38a98175c  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158291669/download
+    echo "87b6671e29297e59a3d6ac3ec32cb771b9c88b243d639139876a06ff0082d3475a5284fe13071186031d05df38e6c51590939d9312dddfd561a63cf60b685e5d  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/157704222/download
-    echo "cfec9f40d3b16e085e9a537c46e2b3ce7da2eb8a553018042ad0b1d107c628d4e14719f66af33d001c1c65390e392ccb41b2af23e1fbbe21bb0bc4044a2e4b30  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158291754/download
+    echo "d9b5b4ec57e440f0981bfa7140cc8d18fae68c31f06b1441348ce2a946324641903edf7de671ab73f892a52d9e6a1629894100471273e7b234e986656c67e61f  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/157704241/download
-    echo "a5b2f9b9272b0094f0cdb44ac236a8ad3573087d4fd828f3f9cb76a97660e3f6e5b324366c7717661d9d9cd7dcb9fd1d4d831770709625cbbe088606a1078a2c  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/158291797/download
+    echo "4fe9bf3ae99a0232e24a7a881c04e2fcd43d2369659b26ee814b2046a04f2b32653cdeb647b2addd58e7089a1f5435cf70b84c9bb6ed64ce1c2fe95ce40f4935  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
@@ -33,9 +33,9 @@ function get_umo() {
 }
 
 function get_configurator() {
-    # v1.1
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/158005741/download
-    echo "05b29ba24796416976b3dbd106f185ddfa515971a8c89a2613514f1c248dbaf829c378c5a2c1bc9ba2fa8e1fc3536daf150762a9de12eaa3d6354d7c084cfa99  configurator.zip" | sha512sum -c
+    # v1.2
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/158332278/download
+    echo "42f31323259158769fac40f717a005015a67bedc4dabdf8c4792c1fb2a6b20427604f064c327631e5ef29bd6f0422892a4f5fe5da2492ca9748cecc3a67b08af  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
@@ -145,10 +145,11 @@ function get_groundcoverify() {
     unzip -qq groundcoverify-win.zip || printf ""
     mv groundcoverify/groundcoverify.exe ${_windows}/
 
+    curl -sL -o LICENSE-groundcoverify.md https://gitlab.com/bmwinger/groundcoverify/-/raw/main/LICENSE
     curl -sL -o README-groundcoverify.md https://gitlab.com/bmwinger/groundcoverify/-/raw/main/README.md
-    cp README-groundcoverify.md ${_linux}/Readmes/
-    cp README-groundcoverify.md ${_macos}/Readmes/
-    cp README-groundcoverify.md ${_windows}/Readmes/
+    cp README-groundcoverify.md LICENSE-groundcoverify.md ${_linux}/Readmes/
+    cp README-groundcoverify.md LICENSE-groundcoverify.md ${_macos}/Readmes/
+    cp README-groundcoverify.md LICENSE-groundcoverify.md ${_windows}/Readmes/
 }
 
 function get_validator() {
