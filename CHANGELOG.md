@@ -1,5 +1,11 @@
 ## MOMW Tools pack Changelog
 
+#### 1.4
+
+* Upgraded MOMW Configurator: 1.2 -> 1.3
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+
 #### 1.3
 
 * Upgraded MOMW Configurator: 1.1 -> 1.2
