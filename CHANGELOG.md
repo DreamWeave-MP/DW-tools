@@ -4,7 +4,7 @@
 
 * Upgraded umo: 0.4.16 -> 0.4.17
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32133122)
 
 #### 1.5
 
