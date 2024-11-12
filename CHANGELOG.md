@@ -7,7 +7,7 @@
 * Upgraded OpenMW-Validator: 1.12 -> 1.13
 * A `version.txt` file is now included which indicates the version of the pack and all included tools
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32172655)
 
 #### 1.6
 
