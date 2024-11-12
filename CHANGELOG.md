@@ -1,5 +1,14 @@
 ## MOMW Tools pack Changelog
 
+#### 1.7
+
+* Upgraded umo: 0.4.17 -> 0.4.18
+* Upgraded MOMW Configurator: 1.3 -> 1.5
+* Upgraded OpenMW-Validator: 1.12 -> 1.13
+* A `version.txt` file is now included which indicates the version of the pack and all included tools
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+
 #### 1.6
 
 * Upgraded umo: 0.4.16 -> 0.4.17

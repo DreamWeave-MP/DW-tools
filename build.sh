@@ -5,23 +5,30 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
+umo_version=0.4.18
+configurator_version=1.5
+tes3cmd_version=0.40-PRE-RELEASE-2
+delta_version=0.22.0
+lightfixes_version=0.3
+groundcoverify_version=0.2.1-3
+validator_version=1.13
+
 function get_umo() {
-    # v0.4.17
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158655372/download
-    echo "4445a997c9ba350d55aa5125ca533c91d3eee42dc73a670cb2e6f7e627191ddc3a3538d994bea4d1ccb7b34bfc7dba0b5c4c3f618c53ce18dce08271e783413c  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158862076/download
+    echo "8888a4fea2a7999169bcfd75898d07fac708bcea011f1ec988814a21a4884f51c189169388c9c649d51f571f2a7f2851ba3242f7490e9b47fa83fcdaa1e98989  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158655400/download
-    echo "1d2f97962fd74b18628770ea27b3e64fc59e6b6f324f336750367f31e05b98a55e87bf81d334515c3019fc10843a4643a2faa1577f9f2baa7756be2a057c1a7e  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/158862087/download
+    echo "4610a57ac77ad9555111cf6a7a0e0236005d0c76eebd5ae609622637ee9a1cb026f0fde206184d13fc6e757b83ea6a6b0149d72f38d54d7c518c6f587fc1b05d  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/158655447/download
-    echo "a0ea9f70fc0bb719355bfce4ed0b71c64b3cb9e74dee6cd6db399cb49195d838e82e17c5e1d4027b76078697a45d6f59637ef66c57b6be13e4be7ac6caa8f140  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/158862097/download
+    echo "67b651c5ed03b60621d7d26163b8f128d13d8e0b6b80d4d1ffb52e873ea017a09d3084c5aba6899cc7d4e914aefd2f7897b5f4f4391ed3a327390aa3205bbab9  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
@@ -33,9 +40,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    # v1.3
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/158568521/download
-    echo "8997ca0f81413ad48db297e0439fbfd6b92f33e1975169394196b9b9169f6f3e1edb4a3a8a25de79016de92b09e6a7e2c726f158955ed36c67803724715f9afe  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/158879263/download
+    echo "3df6838f5333c20f6510002e33265b5c6d1d4a7bc512debdcff0aca8a7cdb30585d16a1f87dc8cdf48e2cf84170f4394b2dc672abb35b0057f92340f66cee662  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
@@ -71,8 +77,6 @@ function get_tes3cmd() {
 }
 
 function get_delta() {
-    delta_version=0.22.0
-
     # macos
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
     echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
@@ -105,8 +109,6 @@ function get_delta() {
 }
 
 function get_lightfixes() {
-    lightfixes_version=0.3
-    
     curl -sLO https://github.com/glassmancody/waza_lightfixes/releases/download/${lightfixes_version}/linux.zip
     echo "eb1301a65f68891551438686c217693d4fbd4095026de190ba18e680046272b99ecd10d7fd811be5ba7a4e1230b840c734a03ba33596ff20594509bab3b80180  linux.zip" | sha512sum -c
     unzip -qq linux.zip
@@ -153,8 +155,8 @@ function get_groundcoverify() {
 }
 
 function get_validator() {
-    curl -sL -o validator.zip https://gitlab.com/modding-openmw/openmw-validator/-/package_files/155893529/download
-    echo "15def0b533c756917b406a2390046654780ffba2116b16a8e8adabc8a1efeb2c8964ce003270fc9ef1facd3918baf280f80f85aae5c1ffaf099b07d2b2c7e03e  validator.zip" | sha512sum -c
+    curl -sL -o validator.zip https://gitlab.com/modding-openmw/openmw-validator/-/package_files/158873866/download
+    echo "a1c082b6f26f3ef08b4de0e3d3e80da8df165fad2823e76930a6e09355fb88258c9bb646d5c73bd7e6cf34ee0037771d6b191016d601f1099bd707aabc8c4d8e  validator.zip" | sha512sum -c
     unzip -qq validator.zip
     mv openmw-validator/openmw-validator-macos-arm64 openmw-validator/openmw-validator-macos-amd64 ${_macos}/
     mv openmw-validator/openmw-validator-linux-arm64 openmw-validator/openmw-validator-linux-amd64 ${_linux}/
@@ -185,6 +187,20 @@ function main() {
     get_lightfixes
     get_groundcoverify
     get_validator
+
+    version="$(git describe --tags)"
+    for d in ${_linux} ${_macos} ${_windows}; do
+        cat > "${d}"/version.txt <<EOF
+MOMW Tools Pack version:	$version
+umo version:				$umo_version
+MOMW Configurator version:	$configurator_version
+TES3CMD version:			$tes3cmd_version
+Delta Plugin version:		$delta_version
+Waza Lightfixes version:	$lightfixes_version
+Groundcoverify version:		$groundcoverify_version
+OpenMW-Validator version:	$validator_version
+EOF
+    done
 
     tar cpzf ${_linux}.tar.gz ${_linux}
     zip -qqr ${_macos}.zip ${_macos}
