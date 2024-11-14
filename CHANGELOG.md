@@ -7,7 +7,7 @@
 * Upgraded OpenMW-Validator: 1.13 -> 1.14
 * Lowered the general light radius setting in `waza_lightfixes.cfg`: 2.0 -> 1.2
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32264470)
 
 #### 1.7
 
