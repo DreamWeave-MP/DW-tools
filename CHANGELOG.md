@@ -1,5 +1,14 @@
 ## MOMW Tools pack Changelog
 
+#### 1.8
+
+* Upgraded umo: 0.4.18 -> 0.5
+* Upgraded MOMW Configurator: 1.5 -> 1.6
+* Upgraded OpenMW-Validator: 1.13 -> 1.14
+* Lowered the general light radius setting in `waza_lightfixes.cfg`: 2.0 -> 1.2
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+
 #### 1.7
 
 * Upgraded umo: 0.4.17 -> 0.4.18
