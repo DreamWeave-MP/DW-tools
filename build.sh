@@ -5,8 +5,8 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.5
-configurator_version=1.6
+umo_version=0.5.2
+configurator_version=1.7
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
 lightfixes_version=0.3
@@ -15,20 +15,20 @@ validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/159321706/download
-    echo "b87ddffcce813114f793d1bdf5cf7e5738f63bda2410c332118de796e9b43ed35d057d0aa90dd4023cc9f30a65f24bb608f563e0ef3cacb55a6bba5ae21a9ff4  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/159551887/download
+    echo "877cef056a8e1a659f46ffd75a4b9a90d881f9968b5014599bdb4b39d64cc6a8f9f6be4fa538fad091fe511ee6fdef8127fb7f5e8c58af2d13c6e585c8b12dfa  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/159321716/download
-    echo "bd0718f33df73411d0571f04d8fdafa08460edb3f6125c61a2582c738e8ff59ea94d3807727a46165dc2371aef8b3d3b3df3bd98194c6fd1ed4b926055559c57  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/159551902/download
+    echo "9f6197ddefd0dbcc0ad93fb77f3b19f6b2cf7b1d2ba5bcb127ae080ba26324282a8ab87070aa3f0659e2a317cc8dd216de9fee42a030eff6e52ccf6918ad4bcb  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/159321725/download
-    echo "00e4b5292a99fbc3f301a72d97947035ef0e2c67473a11d6c1253023f182bfd01d19b5e4111ecbfbf6685677d6f0fff68386b241404c5b2c2ce30ac9fe409bf2  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/159551915/download
+    echo "c7adb6ee3d21086584aec29f59c5064d0a2d4749cf2ff00026289915ac41965aa756e9049c0556733836dddb9ce37d0182963bd28e2c2d68b698eaca299a6da1  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
