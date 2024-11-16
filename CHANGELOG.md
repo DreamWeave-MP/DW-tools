@@ -4,7 +4,7 @@
 
 * Upgraded umo: 0.5.2 -> 0.5.3
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-configurator/-/packages/32348622)
 
 #### 1.9
 
