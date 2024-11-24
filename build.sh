@@ -15,20 +15,20 @@ validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161035251/download
-    echo "d3a7576254f1c38db6402ffe8569b36eaf146467fd52ffa097b092ff0a818eddda1b4bb05d0e14d43e4ec9ebd5b8c2b3ce9415749eba6631b7f0d5a770704577  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161088988/download
+    echo "99d10e2e9c758729c49eeb99a2961fee77735244d3aa3777480be636bb33a669840d860cdf8eb2933858a8e93e7c8f5108edbede45af20001f3f43198bd7e502  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161035271/download
-    echo "3854c0f1d48cfcf11b10b2dff466675552d00cf825fa6a2a41ce454379ae952fddd7c38d7a91ac1aaa24c9f0d78abafd9cbb30a62cc1da5492f121c6aa1b436d  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161089007/download
+    echo "dd8ba0fc68ced487dea8891993eb0ac0731560fa8f8d1eaaa2eaac1a4721275425ccebfcdea16dcb86e910926dff931e8a1939d21bfa0361495a99d60fa46a1c  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/161035290/download
-    echo "fcb43168770e89333c0e8df4dc3f88d643cd63f72b4b29ea09f169e46f08e735817eef99795ae81c529723de1d5165225c5248b1a8781ddcb76bfe4b1cd776cc  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/161089025/download
+    echo "09737fe04267f5d8dfacdfb6d11842d41e8c39e542597a7bb165068f19405914731f5baff001eb7302d2afa2ea005000382219be25812739ccb249b1352d18c8  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
@@ -194,14 +194,14 @@ function main() {
     version="$(git describe --tags)"
     for d in ${_linux} ${_macos} ${_windows}; do
         cat > "${d}"/version.txt <<EOF
-MOMW Tools Pack version:	$version
-umo version:				$umo_version
-MOMW Configurator version:	$configurator_version
-TES3CMD version:			$tes3cmd_version
-Delta Plugin version:		$delta_version
-Waza Lightfixes version:	$lightfixes_version
-Groundcoverify version:		$groundcoverify_version
-OpenMW-Validator version:	$validator_version
+MOMW Tools Pack version:        $version
+umo version:                            $umo_version
+MOMW Configurator version:      $configurator_version
+TES3CMD version:                        $tes3cmd_version
+Delta Plugin version:           $delta_version
+Waza Lightfixes version:        $lightfixes_version
+Groundcoverify version:         $groundcoverify_version
+OpenMW-Validator version:       $validator_version
 EOF
     done
 
