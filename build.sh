@@ -15,20 +15,20 @@ validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161088988/download
-    echo "99d10e2e9c758729c49eeb99a2961fee77735244d3aa3777480be636bb33a669840d860cdf8eb2933858a8e93e7c8f5108edbede45af20001f3f43198bd7e502  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161103674/download
+    echo "f3e586a2f316a01ee8c49fa6562ee5e7f61fc3c4ba3bd0be2249d7e7381b694cd842094c10275b9cd9ed929ea0161f099ac36d9afde1795077df385d6967f5a4  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161089007/download
-    echo "dd8ba0fc68ced487dea8891993eb0ac0731560fa8f8d1eaaa2eaac1a4721275425ccebfcdea16dcb86e910926dff931e8a1939d21bfa0361495a99d60fa46a1c  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161103681/download
+    echo "68327c2ee53eaa5a411a170151fed455959c5c8855c71715c512dd1c154ae3871c39eb105693eb37cd8dcda0123b38308ce2e0db8c10dc65487d660879d464b5  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/161089025/download
-    echo "09737fe04267f5d8dfacdfb6d11842d41e8c39e542597a7bb165068f19405914731f5baff001eb7302d2afa2ea005000382219be25812739ccb249b1352d18c8  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/161103687/download
+    echo "5c2a1efca8a26c779228b2ca7725de5a6ecff0f37306517191e4208c6ee027ebf5752170c4d41d40359df0f566b026d0e27f6e0758da38623dc4945b25762ef2  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
