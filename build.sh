@@ -5,7 +5,7 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.7.3
+umo_version=0.7.4
 configurator_version=1.9
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
