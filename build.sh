@@ -5,8 +5,8 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.7.4
-configurator_version=1.9
+umo_version=0.7.8
+configurator_version=1.10
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
 lightfixes_version=0.3
@@ -15,20 +15,20 @@ validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161103674/download
-    echo "f3e586a2f316a01ee8c49fa6562ee5e7f61fc3c4ba3bd0be2249d7e7381b694cd842094c10275b9cd9ed929ea0161f099ac36d9afde1795077df385d6967f5a4  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/162663136/download
+    echo "d0e2a2348fa89a3ccda0495b6a69094ace7f8b7174abe835d34d4ae8f6923d64e5e63b370bce578b804a52768c16b5096dac0e2f687ac2bd894270dbb332b5f0  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/161103681/download
-    echo "68327c2ee53eaa5a411a170151fed455959c5c8855c71715c512dd1c154ae3871c39eb105693eb37cd8dcda0123b38308ce2e0db8c10dc65487d660879d464b5  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/162663227/download
+    echo "f3d083139e666ce0f036e89396060472cae604e368c0704cc6f1b07aaa7d49b885dafc4d81a8496574da95f69edb50314df8bfd13ea9d540efd2e12cb13e9a08  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/161103687/download
-    echo "5c2a1efca8a26c779228b2ca7725de5a6ecff0f37306517191e4208c6ee027ebf5752170c4d41d40359df0f566b026d0e27f6e0758da38623dc4945b25762ef2  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/162663301/download
+    echo "79c393482600c80591ca4e468f38bb365794726188e208697ad44a86a864e6dd42cbfcdf8631d00521ac7c765daa661fae35501cf106249c3f792b63a7b45c96  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf ""
     mv umo/umo.exe ${_windows}/
@@ -40,8 +40,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/160065481/download
-    echo "6c0c0a70cb3c115dc695a6d202293df1e74946fc087dcbb4d727745c415b577dc90fdb7ffba77505d626d230a5546a74100c0d7865d734bfcfbc6291d3081282  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/162617443/download
+    echo "000b24aa5d0a2d7296f25f3acb99cec202ad262e7aec703b1196357ca8e230e6230b7e433b547f537a5f1c6dacefb2f9c0436e9ebe1fca16c4de79d803864a13  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
@@ -194,14 +194,14 @@ function main() {
     version="$(git describe --tags)"
     for d in ${_linux} ${_macos} ${_windows}; do
         cat > "${d}"/version.txt <<EOF
-MOMW Tools Pack version:        $version
-umo version:                            $umo_version
-MOMW Configurator version:      $configurator_version
-TES3CMD version:                        $tes3cmd_version
-Delta Plugin version:           $delta_version
-Waza Lightfixes version:        $lightfixes_version
-Groundcoverify version:         $groundcoverify_version
-OpenMW-Validator version:       $validator_version
+MOMW Tools Pack version:		$version
+umo version:					$umo_version
+MOMW Configurator version:		$configurator_version
+TES3CMD version:				$tes3cmd_version
+Delta Plugin version:			$delta_version
+Waza Lightfixes version:		$lightfixes_version
+Groundcoverify version:			$groundcoverify_version
+OpenMW-Validator version:		$validator_version
 EOF
     done
 
