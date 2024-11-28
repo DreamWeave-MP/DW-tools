@@ -5,7 +5,7 @@
 * Upgraded umo: 0.7.4 -> 0.7.8
 * Upgraded MOMW Configurator: 1.9 -> 1.10
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/32861236)
 
 #### 1.15
 
