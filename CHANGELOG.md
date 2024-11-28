@@ -4,7 +4,7 @@
 
 * Upgraded umo: 0.7.3 -> 0.7.4
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/32611824)
 
 #### 1.14
 
