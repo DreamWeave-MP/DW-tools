@@ -6,7 +6,7 @@ _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
 umo_version=0.7.12
-configurator_version=1.11
+configurator_version=1.12
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
 lightfixes_version=0.1.3
@@ -40,8 +40,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/163080442/download
-    echo "0ec66f5fc748566013af0f851c018443fdf0b6a6773b633dabce3ff397c2a0a941f9f60045cfa0f4ab3ec0ca1e7602329ff71d18458da4b985ac6a77d70d091e  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/165648986/download
+    echo "61386374aa3a1f50acd15d63f00136c5635f36fc327622966154ec6611c6d290069a37852cda16bf367f28b55c876e300f83b80af85347bfd05df61c86a701a4  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/

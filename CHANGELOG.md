@@ -3,6 +3,7 @@
 #### 1.19
 
 * Replaced Waza Lightfixes with S3LightFixes
+* Updated MOMW Configurator: 1.11 -> 1.12
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
 
