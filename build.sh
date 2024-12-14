@@ -213,7 +213,7 @@ umo version:					$umo_version
 MOMW Configurator version:		$configurator_version
 TES3CMD version:				$tes3cmd_version
 Delta Plugin version:			$delta_version
-Waza Lightfixes version:		$lightfixes_version
+S3LightFixes version:			$lightfixes_version
 Groundcoverify version:			$groundcoverify_version
 OpenMW-Validator version:		$validator_version
 EOF
