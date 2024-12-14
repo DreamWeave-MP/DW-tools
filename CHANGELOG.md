@@ -1,5 +1,11 @@
 ## MOMW Tools Pack Changelog
 
+#### 1.19
+
+* Replaced Waza Lightfixes with S3LightFixes
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+
 #### 1.18
 
 * Upgraded umo: 0.7.10 -> 0.7.12

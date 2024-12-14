@@ -9,7 +9,7 @@ umo_version=0.7.12
 configurator_version=1.11
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
-lightfixes_version=0.3
+lightfixes_version=0.1.1
 groundcoverify_version=0.2.1-3
 validator_version=1.14
 
@@ -109,28 +109,42 @@ function get_delta() {
 }
 
 function get_lightfixes() {
-    curl -sLO https://github.com/glassmancody/waza_lightfixes/releases/download/${lightfixes_version}/linux.zip
-    echo "eb1301a65f68891551438686c217693d4fbd4095026de190ba18e680046272b99ecd10d7fd811be5ba7a4e1230b840c734a03ba33596ff20594509bab3b80180  linux.zip" | sha512sum -c
-    unzip -qq linux.zip
-    sed -i "s|radius=2.0|radius=1.2|" linux/waza_lightfixes.cfg
-    mv linux/* ${_linux}/
+    curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
+    echo "cff9acce53ecb11d4c66811dc2db1eec8f89e8731d2f7560a201c75b6d69c3e4864c20c64cc1811c0d1fb1b881c77bef7644dc1b4ccfc3e78afc70e2b1301c1a  s3lightfixes-linux.zip" | sha512sum -c
+    unzip -qq s3lightfixes-linux.zip
+    mv s3lightfixes ${_linux}/
 
-    curl -sLO https://github.com/glassmancody/waza_lightfixes/releases/download/${lightfixes_version}/macOS.zip
-    echo "1fccc27632b0439d41153c2d1ef95414b4379261a983fb1ba264899a9df08e8e05ba740f555b335f21764a9f3d58bd7964f5f51502d08b542a020374a367c641  macOS.zip" | sha512sum -c
-    unzip -qq macOS.zip
-    sed -i "s|radius=2.0|radius=1.2|" macOS/waza_lightfixes.cfg
-    mv macOS/* ${_macos}/
+    curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
+    echo "5e06a7404d8067c20701f9d050eaca48c5a06af156919edf71674135dd8bbc4678eb80a901ef27e3c2cfe5bf0e18554606afb06c5e7ba01486d4585941a8e323  s3lightfixes-mac.zip" | sha512sum -c
+    unzip -qq s3lightfixes-mac.zip
+    mv s3lightfixes ${_macos}/
 
-    curl -sLO https://github.com/glassmancody/waza_lightfixes/releases/download/${lightfixes_version}/windows.zip
-    echo "64704c699fc088db0bb63decc8a45be2032d60ec1363e283eb3ea82b0ae18c8976c72c3c06b28e67add91f4aa316b3f14171bf01e3e9cc293774557fc2a4beb7  windows.zip" | sha512sum -c
-    unzip -qq windows.zip
-    sed -i "s|radius=2.0|radius=1.2|" windows/waza_lightfixes.cfg
-    mv windows/* ${_windows}/
+    curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
+    echo "fac577f2d5b8118fa4bfc2c9350700bd87ce1bb0bc0a2ded1a784bc9a602d485f2742d9278ceee31ccf8346d3a2747950fe5a67912d22ecd3c59b5d4527cb502  s3lightfixes-win.zip" | sha512sum -c
+    unzip -qq s3lightfixes-win.zip
+    mv s3lightfixes.exe ${_windows}/
 
-    curl -sL -o README-waza-lightfixes.md https://raw.githubusercontent.com/glassmancody/waza_lightfixes/refs/heads/master/README.md
-    cp README-waza-lightfixes.md ${_linux}/Readmes/
-    cp README-waza-lightfixes.md ${_macos}/Readmes/
-    cp README-waza-lightfixes.md ${_windows}/Readmes/
+    cat > lightConfig.toml <<EOF
+auto_install = false
+disable_flickering = true
+save_log = false
+standard_hue = 0.6000000238418579
+standard_saturation = 0.800000011920929
+standard_value = 0.5699999928474426
+standard_radius = 2.0
+colored_hue = 1.0
+colored_saturation = 0.8999999761581421
+colored_value = 0.699999988079071
+colored_radius = 1.100000023841858
+EOF
+    for d in ${_linux} ${_macos} ${_windows}; do
+        cp lightConfig.toml "${d}"/
+    done
+
+    curl -sL -o README-s3lightfixes.md https://raw.githubusercontent.com/magicaldave/S3LightFixes/refs/heads/main/Readme.md
+    cp README-s3lightfixes.md ${_linux}/Readmes/
+    cp README-s3lightfixes.md ${_macos}/Readmes/
+    cp README-s3lightfixes.md ${_windows}/Readmes/
 }
 
 function get_groundcoverify() {

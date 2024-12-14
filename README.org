@@ -9,7 +9,7 @@ Includes:
 - [[https://modding-openmw.gitlab.io/momw-configurator/][MOMW Configurator]]
 - [[https://modding-openmw.com/mods/tes3cmd/][TES3CMD]]
 - [[https://gitlab.com/bmwinger/delta-plugin/#deltaplugin][Delta Plugin]]
-- [[https://github.com/glassmancody/waza_lightfixes][Waza Lightfixes]]
+- [[https://github.com/magicaldave/S3LightFixes][S3LightFixes]]
 - [[https://gitlab.com/bmwinger/groundcoverify#groundcoverify][Groundcoverify!]]
 - [[https://modding-openmw.gitlab.io/openmw-validator/][OpenMW-Validator]]
 
@@ -30,7 +30,7 @@ Authors:
 - MOMW Configurator: *johnnyhostile*
 - TES3CMD: *John Moonsugar*
 - Delta Plugin: *Benjamin Winger*
-- Waza Lightfixes: *Wazabear*
+- S3LightFixes: *S3ctor*
 - Groundcoverify: *Benjamin Winger*
 - OpenMW-Validator: *johnnyhostile*
 
