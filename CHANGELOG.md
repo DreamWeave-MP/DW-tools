@@ -4,7 +4,7 @@
 
 * Lowered the S3LightFixes light radius value from 2.0 to 1.2
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/33451498)
 
 #### 1.19
 
