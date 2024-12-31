@@ -30,8 +30,9 @@ function get_umo() {
     curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/167496482/download
     echo "f3140ad0caa69f07bde5547983c592df9816a8118fcfc179d3ef50257a3bf1bc0680c2a77089ead9ee7550c36b4e26515188a36136e5a888611fd12bc15da377  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
-    unzip -oqq umo-windows.zip || printf "" #TODO: use 7z
-    mv umo ${_windows}/
+    cd ${_windows}/
+    unzip -oqq ../umo-windows.zip || printf "" #TODO: use 7z
+    cd -
 
     curl -sL -o README-umo.org https://gitlab.com/modding-openmw/umo/-/raw/master/README.org
     cp README-umo.org ${_linux}/Readmes/

@@ -1,5 +1,11 @@
 ## MOMW Tools Pack Changelog
 
+#### 1.22
+
+* Fixed broken umo packaging
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+
 #### 1.21
 
 * Upgraded umo: 0.7.12 -> 0.8.1
