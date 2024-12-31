@@ -4,7 +4,7 @@
 
 * Fixed broken umo packaging
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/33810937)
 
 #### 1.21
 
