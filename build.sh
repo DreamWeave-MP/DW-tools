@@ -5,8 +5,8 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.7.12
-configurator_version=1.12
+umo_version=0.8.1
+configurator_version=1.13
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
 lightfixes_version=0.1.3
@@ -15,20 +15,20 @@ validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/165585340/download
-    echo "6594d9a0e0a0b34cf2570466691543d5d98f223e89768a96ae8f9e8c23a23db7765e7f119053daed65bd707735d67bda4867aba2e035f1b404652a87f757cf3f  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/167496461/download
+    echo "5d45f5736c39c20d0d6d498102d30bc7676504fb4ede512d728119651da364c71f84b9431ad06c8d2ba459054f45c0c8ed333dd51bd59de80da7ee7027f3f244  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/165585354/download
-    echo "0799a76c4b0e3340974645235d8f5646cff17fbb132c594f4c5cd4cac9b66a0da1685ab4bf3bb1cdbbe4c03910b32bdced320115365a08226d55060efdfa23de  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/167496470/download
+    echo "d06088b70efdbfd0dc10950432d60e38012d858f760d71454d686feff0b27076417f4c41245b9bb6db8cdc75c796ae141772ffe4a53444c9f60e805d81926967  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/165585363/download
-    echo "db727b0c51d2462bd10707d329b6b0244ccded905068a17932e9aef3fe02beb47e2e18538d8195ff83879d93b5e3b339b7907c21c478bb22f14341ae0de982f5  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/167496482/download
+    echo "f3140ad0caa69f07bde5547983c592df9816a8118fcfc179d3ef50257a3bf1bc0680c2a77089ead9ee7550c36b4e26515188a36136e5a888611fd12bc15da377  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -oqq umo-windows.zip || printf "" #TODO: use 7z
     mv umo ${_windows}/
@@ -40,8 +40,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/165648986/download
-    echo "61386374aa3a1f50acd15d63f00136c5635f36fc327622966154ec6611c6d290069a37852cda16bf367f28b55c876e300f83b80af85347bfd05df61c86a701a4  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/167496202/download
+    echo "d1797ab627cb83860cce11a296ecbbdca463cef8a5ba2f617d577c21f56c8a6e74182bbe941c214b13f662547b5e353a0126c99acd9d53eb21167dd6bbf3849b  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/

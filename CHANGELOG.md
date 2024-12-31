@@ -1,5 +1,12 @@
 ## MOMW Tools Pack Changelog
 
+#### 1.21
+
+* Upgraded umo: 0.7.12 -> 0.8.1
+* Upgraded MOMW Configurator: 1.12 -> 1.13
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+
 #### 1.20
 
 * Lowered the S3LightFixes light radius value from 2.0 to 1.2
