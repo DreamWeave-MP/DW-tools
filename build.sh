@@ -9,7 +9,7 @@ umo_version=0.8.2
 configurator_version=1.14
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
-lightfixes_version=0.1.3
+lightfixes_version=0.1.5
 groundcoverify_version=0.2.1-3
 validator_version=1.14
 
@@ -111,17 +111,17 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "ed74f920a879e68ab44eb8ee3b19ac93a6e6dbc5476f2b40e7758803e4649a4a63db5b959ccacb73570f94a0eaf705f389777cb38ac228eee867ea0d034ed7d9  s3lightfixes-linux.zip" | sha512sum -c
+    echo "6a78db8605a6e92beebba673814bafaf7185afb8fa8cca4e437a0d369220daef885686291b811c479a72952d62290db515c74c5a6c5ec127f62e75f2e6d587ec  s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "7afe5f14588c5925354d284032990d5202b49ed2f7e8077ce4240fb3c89bcb3037ad9c4ddcf2264c56a03a6b945ed5366632591fdf0b8c8d05c48e3247e14b6b  s3lightfixes-mac.zip" | sha512sum -c
+    echo "7227761df7bd7de851fa901892e86a5358e40608ba8ecf471eb4c2748988190708540fd49ecc3b878eeb648f313de43f7c4ae1c467839f39b55e39ab89725de5  s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "a2786b35c187bf63f7f2d77532911273cfc573ac1063d156eafc9d285dcf22b55163a41df4886f06ec17e3e30b3615f27b31d0d6355eccfda5c86665be82fab3  s3lightfixes-win.zip" | sha512sum -c
+    echo "8a2dd5449fd6cc6f10fa27535e51dac4c97aa0eaceea8eb7cee52afbf56a019e0ccc2a2f19a65cb93eede92d6abb5ec50b96ff2871e2eef1f1c5f73cbde3f2b5  s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
 
