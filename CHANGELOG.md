@@ -2,6 +2,7 @@
 
 #### 1.24
 
+* Upgraded umo: 0.8.2 -> 0.8.5
 * Upgraded S3LightFixes: 0.1.3 -> 0.1.5
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
