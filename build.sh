@@ -6,10 +6,10 @@ _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
 umo_version=0.8.5
-configurator_version=1.14
+configurator_version=1.15
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.0
-lightfixes_version=0.1.5
+lightfixes_version=0.1.6
 groundcoverify_version=0.2.1-3
 validator_version=1.14
 
@@ -41,8 +41,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/167558870/download
-    echo "f512b06a2619ae11e0cec3616ce5e05e801d02495797abcff52d2d3a71573b5867a2426f5d614c05a8dab8483b6c7bd65edb3b73bb49064dcfb9f51415ad4ef6  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/167937394/download
+    echo "3d33e3ade2c49ab44c6fb38f1a8464652cf46aea5e1bd92af8da10fd5686ea9ef3752771879c7988360aed90bf6ea1469eb017228baa5429ca85cd4e1e3912ec  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
@@ -111,17 +111,17 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "6a78db8605a6e92beebba673814bafaf7185afb8fa8cca4e437a0d369220daef885686291b811c479a72952d62290db515c74c5a6c5ec127f62e75f2e6d587ec  s3lightfixes-linux.zip" | sha512sum -c
+    echo "251552882a6717e81910058e5c2cd3b4fe5b76dd8905e56342226913a2591fcfd87826bc68e85f1cff1a80bd5be6746a10a01f23fb3815858aa64e0c58d20a48  s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "7227761df7bd7de851fa901892e86a5358e40608ba8ecf471eb4c2748988190708540fd49ecc3b878eeb648f313de43f7c4ae1c467839f39b55e39ab89725de5  s3lightfixes-mac.zip" | sha512sum -c
+    echo "c6fcdc561a04dacfe35e8825c832a5125d77b91d0638e2afd0457f85bce03c75627a33748cad8dcebee4e0204f62fc5d04eb002e10082906bf81bc9ce971087e  s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "8a2dd5449fd6cc6f10fa27535e51dac4c97aa0eaceea8eb7cee52afbf56a019e0ccc2a2f19a65cb93eede92d6abb5ec50b96ff2871e2eef1f1c5f73cbde3f2b5  s3lightfixes-win.zip" | sha512sum -c
+    echo "5c7e35980ad36db5482c16f6294c7866930259af75e78dbc4d9c23d77f9f4ddb1dd58f7f71b3274b90bd94c0ea69b3939aa43c8a8bb7da43fb0da107ad01e850  s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
 
