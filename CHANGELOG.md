@@ -1,6 +1,6 @@
 ## MOMW Tools Pack Changelog
 
-#### 1.24
+#### 1.25
 
 * Upgraded MOMW Configurator: 1.14 -> 1.15
 * Upgraded S3LightFixes: 0.1.5 -> 0.1.6
