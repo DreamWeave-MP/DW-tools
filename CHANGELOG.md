@@ -5,7 +5,7 @@
 * Upgraded MOMW Configurator: 1.14 -> 1.15
 * Upgraded S3LightFixes: 0.1.5 -> 0.1.6
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/33872916)
 
 #### 1.24
 
