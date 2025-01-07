@@ -1,5 +1,11 @@
 ## MOMW Tools Pack Changelog
 
+#### 1.26
+
+* Upgraded umo: 0.8.5 -> 0.8.8
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+
 #### 1.25
 
 * Upgraded MOMW Configurator: 1.14 -> 1.15
