@@ -1,5 +1,12 @@
 ## MOMW Tools Pack Changelog
 
+#### 1.27
+
+* Upgraded umo: 0.8.8 -> 0.8.14
+* Upgraded Delta Plugin: 0.22.0 -> 0.22.1
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+
 #### 1.26
 
 * Upgraded umo: 0.8.5 -> 0.8.8

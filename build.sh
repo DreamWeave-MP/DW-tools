@@ -5,30 +5,30 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.8.8
+umo_version=0.8.14
 configurator_version=1.15
 tes3cmd_version=0.40-PRE-RELEASE-2
-delta_version=0.22.0
+delta_version=0.22.1
 lightfixes_version=0.1.6
 groundcoverify_version=0.2.1-3
 validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/168340738/download
-    echo "d869d29093e8a9472ca840a06a843e5f313ab035c17e907a2c7518b075bf562f24e4bacdd8c17e977c3d36c1b7a6f5b7972690d7955d31163866ed7ed7c9bde4  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/170350022/download
+    echo "17be6b7de02aa962723a496c0c9ba220a177cc1c3273e6c353c523664df540bd04ec5f600d9aa56df8d473251d3b1fd31ebe63df4290283a6750f2e3c56c8c20  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/168340761/download
-    echo "ac177972a9e8e52e35662b0e75f1bfcab4fb6b537a7ea9cc99e79ea335106dce46d9c98fe4c7a0f749494c9a46b4e9d0ddecb7cc1a9d53efa71dbfe2a974431a  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/170350030/download
+    echo "de518984dd1e7302f5b6fc30455d016c087d1f839dbc7dd66d627eb8fb89400479cde2252734dfd7102ac6c1c8a66864fd9d99921fccac72ae6e6528c14bd423  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/168340793/download
-    echo "f985e63034493de3d470150e29a9cf5c90e7c43a8d42f829d1151ac97fcc4fda191ba5f248eb8a513dcb1cd1e6ff296a5476862a5c652c404b6050646ef3553f  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/170350041/download
+    echo "19cc44c7beac16f5c6dd09b5bcf98412347f95956a57e24ff8ce9546f19368f07681f8f81d4879174c6b22a9e6b5c241879f4db871da82fc082d371e2c2e5e88  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     cd ${_windows}/
     unzip -oqq ../umo-windows.zip || printf "" #TODO: use 7z
@@ -79,9 +79,9 @@ function get_tes3cmd() {
 
 function get_delta() {
     # macos
-    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
+    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/0.22.0/downloads/delta-plugin-0.22.0-darwin-amd64.zip
     echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
-    unzip -oqq delta-plugin-${delta_version}-darwin-amd64.zip
+    unzip -oqq delta-plugin-0.22.0-darwin-amd64.zip
     mv delta_plugin ${_macos}/
     mv README.md ${_macos}/Readmes/README-DeltaPlugin.md
     mv LICENSE ${_macos}/Readmes/LICENSE-DeltaPlugin
@@ -90,7 +90,7 @@ function get_delta() {
 
     # windows
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-windows-amd64.zip
-    echo "b2e49f54e37706b30d3d346eb10e5e3852ab0680495f7cf074ba18d71c5cf7e527f596b4e2ba517bf370869a5f51b6b86ece9ac2e24707afb82bd001d6479b31  delta-plugin-0.22.0-windows-amd64.zip" | sha512sum -c
+    echo "86b1b16fb530ff9c36d7f3d7455b1d31b0a3139d52d3925a487d9120fb09e43dd229c95417cb6bdb3fc70649e4ef45f12247b3a4785fa19a0256a18023426a60  delta-plugin-${delta_version}-windows-amd64.zip" | sha512sum -c
     unzip -qq delta-plugin-${delta_version}-windows-amd64.zip
     mv delta_plugin.exe ${_windows}/
     mv README.md ${_windows}/Readmes/README-DeltaPlugin.md
@@ -100,7 +100,7 @@ function get_delta() {
 
     # linux
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-linux-amd64.zip
-    echo "9ecbf451065f90cdaa77abd4965bcf0c158f12c3fdb9c2286e72895c8a05f32c6ea37cd00ffee222fd87bb79087f6aa37c4872aa38aef93d67a2b09a44df29c3  delta-plugin-0.22.0-linux-amd64.zip" | sha512sum -c
+    echo "e00c895efe07649d76cf554f80709917d4a916f413b5d6b0497b75d009c27496e516e9260177f64e29d8f8421507ed98ebd65b94ce7ddcdf5da0a3fb791c097b  delta-plugin-${delta_version}-linux-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-${delta_version}-linux-amd64.zip
     mv delta_plugin ${_linux}/
     mv README.md ${_linux}/Readmes/README-DeltaPlugin.md
@@ -207,7 +207,10 @@ function main() {
     get_validator
 
     version="$(git describe --tags)"
-    for d in ${_linux} ${_macos} ${_windows}; do
+    for d in ${_linux} ${_windows} ${_macos}; do
+        if [ "$d" = momw-tools-pack-macos ]; then
+            delta_version=0.22.0
+        fi
         cat > "${d}"/version.txt <<EOF
 MOMW Tools Pack version:		$version
 umo version:					$umo_version
