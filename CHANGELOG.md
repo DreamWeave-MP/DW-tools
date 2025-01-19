@@ -5,7 +5,7 @@
 * Upgraded umo: 0.8.8 -> 0.8.14
 * Upgraded Delta Plugin: 0.22.0 -> 0.22.1
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/34341471)
 
 #### 1.26
 
