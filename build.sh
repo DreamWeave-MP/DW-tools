@@ -5,30 +5,30 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.8.14
-configurator_version=1.15
+umo_version=0.8.15
+configurator_version=1.16
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.1
-lightfixes_version=0.1.6
+lightfixes_version=0.2.0
 groundcoverify_version=0.2.1-3
 validator_version=1.14
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/170350022/download
-    echo "17be6b7de02aa962723a496c0c9ba220a177cc1c3273e6c353c523664df540bd04ec5f600d9aa56df8d473251d3b1fd31ebe63df4290283a6750f2e3c56c8c20  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/171348121/download
+    echo "b985b64affb36422c27bcdac3e41b622e5af2e8da645ebbaea8764ae488f8c3e909a3919dafb6092e5883f0c434add3edfc34b5455580e700a54ae673b9f3bcb  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/170350030/download
-    echo "de518984dd1e7302f5b6fc30455d016c087d1f839dbc7dd66d627eb8fb89400479cde2252734dfd7102ac6c1c8a66864fd9d99921fccac72ae6e6528c14bd423  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/171348168/download
+    echo "4cac4d78f30b6fd03ea3d9b894928e6e6f66ef25a9bfa8d8efe6e72bc8297b19529332f8d1ef0476422d483c4894472bf10436ff1ceaabc9b6857472b4d492e5  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/170350041/download
-    echo "19cc44c7beac16f5c6dd09b5bcf98412347f95956a57e24ff8ce9546f19368f07681f8f81d4879174c6b22a9e6b5c241879f4db871da82fc082d371e2c2e5e88  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/171348211/download
+    echo "b4e2e63a7d85b5d0bcfa9fe7caa27daeae1a215fdb4a90f08cd148641355b7b13e0a1831c5ad7ceb2d8436a3a73729969570addfda265b81fab1c391a93ac518  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     cd ${_windows}/
     unzip -oqq ../umo-windows.zip || printf "" #TODO: use 7z
@@ -41,8 +41,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/167937394/download
-    echo "3d33e3ade2c49ab44c6fb38f1a8464652cf46aea5e1bd92af8da10fd5686ea9ef3752771879c7988360aed90bf6ea1469eb017228baa5429ca85cd4e1e3912ec  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/172431930/download
+    echo "6a16af8730e125973ade7398f926b2bd5316d45434859d08ebd9bae5bccef7a56d1bbe92ec6ecf23d36599c3b41ba205ca4dd07aff79fdde6ab3344e3968fbab  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
@@ -111,17 +111,17 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "251552882a6717e81910058e5c2cd3b4fe5b76dd8905e56342226913a2591fcfd87826bc68e85f1cff1a80bd5be6746a10a01f23fb3815858aa64e0c58d20a48  s3lightfixes-linux.zip" | sha512sum -c
+    echo "a8fea129d4c31f297dc3528780816f4ae0ce1e4c681de89496974243903807249758ad070b70d4a9613ad763d09554451dde858f80306630d3f50965187629c8  s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "c6fcdc561a04dacfe35e8825c832a5125d77b91d0638e2afd0457f85bce03c75627a33748cad8dcebee4e0204f62fc5d04eb002e10082906bf81bc9ce971087e  s3lightfixes-mac.zip" | sha512sum -c
+    echo "cd6b5c1aa626bd40f79cabed9d6dfb6f3dbee61d09ebeb01f39963d80c38a2e90f6f70a2a4c42bd833b9da249288efc70b1f6fb2a6aeae0aa02201fdefdcc61c  s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "5c7e35980ad36db5482c16f6294c7866930259af75e78dbc4d9c23d77f9f4ddb1dd58f7f71b3274b90bd94c0ea69b3939aa43c8a8bb7da43fb0da107ad01e850  s3lightfixes-win.zip" | sha512sum -c
+    echo "070048829c5c3fc10af1a31c17da9c906ba03f5fc3e740c2213dfe0d7d0f12b7c9da877776ce86aa87446b81bf998b90e571f02c3bbec9b238293d8636247542  s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
 
