@@ -6,11 +6,11 @@ _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
 umo_version=0.8.15
-configurator_version=1.16
+configurator_version=1.17
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.1
-lightfixes_version=0.2.0
-groundcoverify_version=0.2.1-3
+lightfixes_version=0.3.0
+groundcoverify_version=0.2.2
 validator_version=1.14
 
 function get_umo() {
@@ -111,36 +111,19 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "a8fea129d4c31f297dc3528780816f4ae0ce1e4c681de89496974243903807249758ad070b70d4a9613ad763d09554451dde858f80306630d3f50965187629c8  s3lightfixes-linux.zip" | sha512sum -c
+    echo "a0ed379af4a9c8c3030045c6c0cf5d28514439bf10df1215545492d437d81aa0944d3b7c32929a720fa26781ed6ab2751d86a2d74fa9ef7b9d9dd44ad1c89d53  s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "cd6b5c1aa626bd40f79cabed9d6dfb6f3dbee61d09ebeb01f39963d80c38a2e90f6f70a2a4c42bd833b9da249288efc70b1f6fb2a6aeae0aa02201fdefdcc61c  s3lightfixes-mac.zip" | sha512sum -c
+    echo "128593b3fd13f2a59ab9390c68f84665fb772da425c99b7ff98b398986e7e15155e5d01c5e287ce7ee5d218684baa9ced0ac437d158d2245133af5718e86f819  s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "070048829c5c3fc10af1a31c17da9c906ba03f5fc3e740c2213dfe0d7d0f12b7c9da877776ce86aa87446b81bf998b90e571f02c3bbec9b238293d8636247542  s3lightfixes-win.zip" | sha512sum -c
+    echo "bfb484036d75a40d257425088a905e7edfa79c5668d8ed1959aa73a3517eb954e1d258de90bf77987a29e8c7bbba01fc771f115a6c4cd1a79903415b8194de93  s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
-
-    cat > lightConfig.toml <<EOF
-auto_install = false
-disable_flickering = true
-save_log = false
-standard_hue = 0.6000000238418579
-standard_saturation = 0.800000011920929
-standard_value = 0.5699999928474426
-standard_radius = 1.2
-colored_hue = 1.0
-colored_saturation = 0.8999999761581421
-colored_value = 0.699999988079071
-colored_radius = 1.100000023841858
-EOF
-    for d in ${_linux} ${_macos} ${_windows}; do
-        cp lightConfig.toml "${d}"/
-    done
 
     curl -sL -o README-s3lightfixes.md https://raw.githubusercontent.com/magicaldave/S3LightFixes/refs/heads/main/Readme.md
     cp README-s3lightfixes.md ${_linux}/Readmes/
@@ -150,17 +133,17 @@ EOF
 
 function get_groundcoverify() {
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-linux.tar.gz?job=linux"
-    echo "b3d8b029b7a2998a0e430b3aef8ac5a729a387deb059c67c89e4e490baa72e13b2cc90a123850a3b5ea3835a24b055dd9c301963f1dadd95bc9452b60d7e6c36  groundcoverify-linux.tar.gz" | sha512sum -c
+    echo "ccc4987c7ac82aebb2bbb87ba24b7dd1a3d2a6825dd4a2a0fc7e57046e52d9307fa2da2e4640402db5da7464ae86dea1853cec0eda3f54b88a4c608257bcacd4  groundcoverify-linux.tar.gz" | sha512sum -c
     tar xf groundcoverify-linux.tar.gz
     mv groundcoverify ${_linux}/
 
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-macos.tar.gz?job=macos_arm64"
-    echo "e558e3c7448f799ec5bc2fe96c5a25ca9373be7617bf540ce814c4193c949f5814296194785b48449f43ede7ab7eee70ee10d449b04bb82e4f8128e55350ed0b  groundcoverify-macos.tar.gz" | sha512sum -c
+    echo "e13319e2ec05dc9004968b8f6933e2ab64d699c41e214fc5e6e9227405707f35c8a15f073145a40218b8bc8f896c51a7e4a46c9a1a5fcffbbc8098e92a1007e6  groundcoverify-macos.tar.gz" | sha512sum -c
     tar xf groundcoverify-macos.tar.gz
     mv groundcoverify ${_macos}/
 
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-win.zip?job=windows"
-    echo "02694cab57fb73b579c3d30891047cb4a14bb9dd9d6aa22dbda75aabf0218640cba34f55d974b7f12abd4bf013f429c3f81901ae3140550becab14d8219af8fb  groundcoverify-win.zip" | sha512sum -c
+    echo "c3d86b2e2916daf432e0b1c8648c2b64a3fb530c697287adf494bf96507d6297407bb5d55a6f10dc5afa9592f2c90303c0d01c1faee464768f26e0b2917f3f23  groundcoverify-win.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -qq groundcoverify-win.zip || printf ""
     mv groundcoverify/groundcoverify.exe ${_windows}/

@@ -2,7 +2,7 @@ build:
 	./build.sh
 
 clean:
-	rm -fr lightConfig.toml LICENSE-groundcoverify.md README-* *.zip *.tar.gz groundcoverify/ linux/ macOS/ momw-configurator/ momw-tools-pack-* openmw-validator/ tes3cmd.0.40-PRE-RELEASE-2/ umo/ windows/
+	rm -fr lightConfig.toml LICENSE-groundcoverify.md S3LF-*.bundle README-* *.zip *.tar.gz groundcoverify/ linux/ macOS/ momw-configurator/ momw-tools-pack-* openmw-validator/ tes3cmd.0.40-PRE-RELEASE-2/ umo/ windows/
 
 clean-all: clean web-clean
 
