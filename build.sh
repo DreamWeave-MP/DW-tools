@@ -41,8 +41,8 @@ function get_umo() {
 }
 
 function get_configurator() {
-    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/36198651/download
-    echo "216bea0161c00438e582712b392bc623392295d45710270b33829377c5c29aa2265e8c0db40885b39041e2f6104ff40bafccd1ee901a6a8fa1ca588d90242cc7  configurator.zip" | sha512sum -c
+    curl -sL -o configurator.zip https://gitlab.com/modding-openmw/momw-configurator/-/package_files/179584612/download
+    echo "8659b55ff9fcc71ecf87f51326bdb8dc3582401bab437abfe5039f53b13e0f234cbd61e470f129ecba46cc04f2ff6f757ced19f34eadc40488cc3b7f46235c09  configurator.zip" | sha512sum -c
     unzip -qq configurator.zip
     mv momw-configurator/momw-configurator-linux* ${_linux}/
     mv momw-configurator/momw-configurator-macos* ${_macos}/
