@@ -4,7 +4,7 @@
 
 * Upgraded MOMW Configurator: 1.17 -> 1.18
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/momw-tools-pack/-/packages/36199220)
 
 #### 1.30
 
