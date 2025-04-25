@@ -16,19 +16,19 @@ vfstool_version=0.1.5
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611292/download
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/185011459/download
     echo "67744d162ac45360c988f0804c956e1b68cbedd91d8ed85b1371f10a03040f7c89ac3846852c5442a6769a5c49dcb1aa73c000a3b5fc65eb31c97b9646077b30  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611301/download
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/185011493/download
     echo "fcd003c484c1ba9d1d165840ecbfd49403e1b2d013461b7fdd01d142e3c9d15df1261ed5bfe90b389387581408eb8bfd447d073ef6e863a6c30af9c05b3566b0  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/179611310/download
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/185011517/download
     echo "73bd78049d635ad337380d80fc79672b157db47bb1fe62b8bc873886b544414b4cbc9ab27d0b7926e1c6b9a70ab4b2aed7a0c0f1c5ebffb5a4db9ebbaba7dbed  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     cd ${_windows}/
