@@ -8,7 +8,7 @@ _windows=momw-tools-pack-windows
 umo_version=0.8.18
 configurator_version=1.18
 tes3cmd_version=0.40-PRE-RELEASE-2
-delta_version=0.22.1
+delta_version=0.22.3
 lightfixes_version=0.3.29
 groundcoverify_version=0.2.2
 validator_version=1.14
@@ -79,8 +79,8 @@ function get_tes3cmd() {
 
 function get_delta() {
     # macos
-    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/0.22.0/downloads/delta-plugin-0.22.0-darwin-amd64.zip
-    echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
+    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
+    echo "1962ca33df4d9d6d49616c16f14ea0c123bd7c40062581642579921fa544e8bb5ac4df987fa043bc20d8e016423043de151f04b7ac7b3c4b958a46c5041121c8  delta-plugin-${delta_version}-darwin-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-0.22.0-darwin-amd64.zip
     mv delta_plugin ${_macos}/
     mv README.md ${_macos}/Readmes/README-DeltaPlugin.md
@@ -90,7 +90,7 @@ function get_delta() {
 
     # windows
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-windows-amd64.zip
-    echo "86b1b16fb530ff9c36d7f3d7455b1d31b0a3139d52d3925a487d9120fb09e43dd229c95417cb6bdb3fc70649e4ef45f12247b3a4785fa19a0256a18023426a60  delta-plugin-${delta_version}-windows-amd64.zip" | sha512sum -c
+    echo "8f2a589a2e51a69290bb40a4f6ff594e76467dc6ff6c982dcef0d98ba2ce824bafd2d61dd22f9cd7236dcd0cfff38be138aeb90f16a36938d9ccc874d12819ba  delta-plugin-${delta_version}-windows-amd64.zip" | sha512sum -c
     unzip -qq delta-plugin-${delta_version}-windows-amd64.zip
     mv delta_plugin.exe ${_windows}/
     mv README.md ${_windows}/Readmes/README-DeltaPlugin.md
@@ -100,7 +100,7 @@ function get_delta() {
 
     # linux
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-linux-amd64.zip
-    echo "e00c895efe07649d76cf554f80709917d4a916f413b5d6b0497b75d009c27496e516e9260177f64e29d8f8421507ed98ebd65b94ce7ddcdf5da0a3fb791c097b  delta-plugin-${delta_version}-linux-amd64.zip" | sha512sum -c
+    echo "37a0a3ce8ea6e96690ca2450bace3c7ed23589828b5127256d69fa923013498d3533b77bf04afc819f81f8c080a73f327d34dbdd030ca2d2903e7d57fedc9148  delta-plugin-${delta_version}-linux-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-${delta_version}-linux-amd64.zip
     mv delta_plugin ${_linux}/
     mv README.md ${_linux}/Readmes/README-DeltaPlugin.md
