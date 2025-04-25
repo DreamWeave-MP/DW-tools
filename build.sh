@@ -114,44 +114,34 @@ function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
     echo "89be0e5d42e0dd676bd0e306b16d0716b56c0da3a30ba00b29c783e90b4ece204cf4d837b9a9cd14360226f60989ece0de436e2b5a5eeed8a4de5b120c0b8667 s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
-    mv s3lightfixes ${_linux}/
+    mv s3lightfixes Readme.md ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
     echo "cd57fb092fa9204b1cc59b1672135365a5da033318a6f897990e4de5f57d75877e61091ab1795f0863f96d063c6e2aae39fc74029bc5f520aecc4574c3fb92ff s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
-    mv s3lightfixes ${_macos}/
+    mv s3lightfixes Readme.md ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
     echo "f09d688f18b7395a9ec2a5cc06747e517c822ecd3bcae1785b660a600b1950fc95ccdfae80770f8c6ea37211abcbf1b40eed779effa8716d5dd8fa356dd91372 s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
-    mv s3lightfixes.exe ${_windows}/
-
-    curl -sL -o README-s3lightfixes.md https://raw.githubusercontent.com/magicaldave/S3LightFixes/refs/heads/main/Readme.md
-    cp README-s3lightfixes.md ${_linux}/Readmes/
-    cp README-s3lightfixes.md ${_macos}/Readmes/
-    cp README-s3lightfixes.md ${_windows}/Readmes/
+    mv s3lightfixes.exe Readme.md ${_windows}/
 }
 
 function get_vfstool() {
     curl -sL -o vfstool-linux.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/ubuntu-latest.zip
-    echo "89be0e5d42e0dd676bd0e306b16d0716b56c0da3a30ba00b29c783e90b4ece204cf4d837b9a9cd14360226f60989ece0de436e2b5a5eeed8a4de5b120c0b8667 vfstool-linux.zip" | sha512sum -c
+    echo "80fb19181b964984b4f214e8e6d4c0452cf2ceb4c9f506a0fbbcaf96a2784e60d037f20c7f97326756c5d4bdd53825022951bb5e50fc516fa54f8de5eaea32ac vfstool-linux.zip" | sha512sum -c
     unzip -qq vfstool-linux.zip
-    mv vfstool ${_linux}/
+    mv vfstool README.md ${_linux}/
 
     curl -sL -o vfstool-mac.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/macos-latest.zip
-    echo "cd57fb092fa9204b1cc59b1672135365a5da033318a6f897990e4de5f57d75877e61091ab1795f0863f96d063c6e2aae39fc74029bc5f520aecc4574c3fb92ff vfstool-mac.zip" | sha512sum -c
+    echo "68c448da184da7cc317734523c69e5d49051350fee71175b9bf593a9d972a6efdbe218b1610b630541d6d7ebec9a23b7bcb9d0562742c5dd73acb986ed1a18c6 vfstool-mac.zip" | sha512sum -c
     unzip -qq vfstool-mac.zip
-    mv vfstool ${_macos}/
+    mv vfstool README.md ${_macos}/
 
     curl -sL -o vfstool-win.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/windows-latest.zip
     echo "5ffa892eb1eb469c906d45109870def7ec549d514b7f54b0e3b7d72879cad547439900dfb62dc7e56414457738b4f59019c47066494d367158058b3f01559896 vfstool-win.zip" | sha512sum -c
     unzip -qq vfstool-win.zip
-    mv vfstool.exe ${_windows}/
-
-    curl -sL -o README-vfstool.md https://raw.githubusercontent.com/magicaldave/vfstool/refs/heads/main/README.md
-    cp README-vfstool.md ${_linux}/Readmes/
-    cp README-vfstool.md ${_macos}/Readmes/
-    cp README-vfstool.md ${_windows}/Readmes/
+    mv vfstool.exe README.md ${_windows}/
 }
 
 function get_groundcoverify() {
