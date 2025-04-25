@@ -82,7 +82,7 @@ function get_delta() {
     # macos
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
     echo "1962ca33df4d9d6d49616c16f14ea0c123bd7c40062581642579921fa544e8bb5ac4df987fa043bc20d8e016423043de151f04b7ac7b3c4b958a46c5041121c8  delta-plugin-${delta_version}-darwin-amd64.zip" | sha512sum -c
-    unzip -oqq delta-plugin-0.22.0-darwin-amd64.zip
+    unzip -oqq delta-plugin-${delta_version}-darwin-amd64.zip
     mv delta_plugin ${_macos}/
     mv README.md ${_macos}/Readmes/README-DeltaPlugin.md
     mv LICENSE ${_macos}/Readmes/LICENSE-DeltaPlugin
