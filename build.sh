@@ -12,6 +12,7 @@ delta_version=0.22.3
 lightfixes_version=0.3.29
 groundcoverify_version=0.2.2
 validator_version=1.14
+vfstool_version=0.1.5
 
 function get_umo() {
     # linux
@@ -131,6 +132,28 @@ function get_lightfixes() {
     cp README-s3lightfixes.md ${_windows}/Readmes/
 }
 
+function get_vfstool() {
+    curl -sL -o vfstool-linux.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/ubuntu-latest.zip
+    echo "89be0e5d42e0dd676bd0e306b16d0716b56c0da3a30ba00b29c783e90b4ece204cf4d837b9a9cd14360226f60989ece0de436e2b5a5eeed8a4de5b120c0b8667 vfstool-linux.zip" | sha512sum -c
+    unzip -qq vfstool-linux.zip
+    mv vfstool ${_linux}/
+
+    curl -sL -o vfstool-mac.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/macos-latest.zip
+    echo "cd57fb092fa9204b1cc59b1672135365a5da033318a6f897990e4de5f57d75877e61091ab1795f0863f96d063c6e2aae39fc74029bc5f520aecc4574c3fb92ff vfstool-mac.zip" | sha512sum -c
+    unzip -qq vfstool-mac.zip
+    mv vfstool ${_macos}/
+
+    curl -sL -o vfstool-win.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/windows-latest.zip
+    echo "5ffa892eb1eb469c906d45109870def7ec549d514b7f54b0e3b7d72879cad547439900dfb62dc7e56414457738b4f59019c47066494d367158058b3f01559896 vfstool-win.zip" | sha512sum -c
+    unzip -qq vfstool-win.zip
+    mv vfstool.exe ${_windows}/
+
+    curl -sL -o README-vfstool.md https://raw.githubusercontent.com/magicaldave/vfstool/refs/heads/main/README.md
+    cp README-vfstool.md ${_linux}/Readmes/
+    cp README-vfstool.md ${_macos}/Readmes/
+    cp README-vfstool.md ${_windows}/Readmes/
+}
+
 function get_groundcoverify() {
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-linux.tar.gz?job=linux"
     echo "ccc4987c7ac82aebb2bbb87ba24b7dd1a3d2a6825dd4a2a0fc7e57046e52d9307fa2da2e4640402db5da7464ae86dea1853cec0eda3f54b88a4c608257bcacd4  groundcoverify-linux.tar.gz" | sha512sum -c
@@ -188,6 +211,7 @@ function main() {
     get_lightfixes
     get_groundcoverify
     get_validator
+    get_vfstool
 
     version="$(git describe --tags)"
     for d in ${_linux} ${_windows} ${_macos}; do
@@ -201,6 +225,7 @@ MOMW Configurator version:		$configurator_version
 TES3CMD version:				$tes3cmd_version
 Delta Plugin version:			$delta_version
 S3LightFixes version:			$lightfixes_version
+VFSTool version:                $vfstool_version
 Groundcoverify version:			$groundcoverify_version
 OpenMW-Validator version:		$validator_version
 EOF
