@@ -5,7 +5,7 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.8.18
+umo_version=0.8.23
 configurator_version=1.18
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.3
@@ -16,19 +16,19 @@ validator_version=1.14
 function get_umo() {
     # linux
     curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611292/download
-    echo "41f2df28839107b0dbefe377dca81a1cd57289c04a5eb47cc60d27e69b941f251eeaa13f8b117a299507b242f74969a91c2733a8c20b65f49549ee8732cbebe1  umo-linux.tar.gz" | sha512sum -c
+    echo "67744d162ac45360c988f0804c956e1b68cbedd91d8ed85b1371f10a03040f7c89ac3846852c5442a6769a5c49dcb1aa73c000a3b5fc65eb31c97b9646077b30  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
     curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611301/download
-    echo "d59ebe82fbdb6f036fc1af9eff46f35804eaa0bf405a3948b59dd15e66c42f8cfd1cddbb7feb6b5b3b284977ac3ae61f27efc6a9480bc3f84b42825b5b45d170  umo-macos.tar.gz" | sha512sum -c
+    echo "fcd003c484c1ba9d1d165840ecbfd49403e1b2d013461b7fdd01d142e3c9d15df1261ed5bfe90b389387581408eb8bfd447d073ef6e863a6c30af9c05b3566b0  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
     curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/179611310/download
-    echo "f51e7701d6f4b44eb86cfa326b883ea0f00a530944d232ee220a58e15e0978f0c6b42d30b8a9a71e59187557dcee309f71ac0ba3866c9eb33c9e44503419c3b8  umo-windows.zip" | sha512sum -c
+    echo "73bd78049d635ad337380d80fc79672b157db47bb1fe62b8bc873886b544414b4cbc9ab27d0b7926e1c6b9a70ab4b2aed7a0c0f1c5ebffb5a4db9ebbaba7dbed  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     cd ${_windows}/
     unzip -oqq ../umo-windows.zip || printf "" #TODO: use 7z
