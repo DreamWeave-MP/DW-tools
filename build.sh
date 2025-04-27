@@ -5,30 +5,31 @@ _linux=momw-tools-pack-linux
 _macos=momw-tools-pack-macos
 _windows=momw-tools-pack-windows
 
-umo_version=0.8.18
+umo_version=0.8.23
 configurator_version=1.18
 tes3cmd_version=0.40-PRE-RELEASE-2
-delta_version=0.22.1
-lightfixes_version=0.3.0
+delta_version=0.22.3
+lightfixes_version=0.3.29
 groundcoverify_version=0.2.2
 validator_version=1.14
+vfstool_version=0.1.5
 
 function get_umo() {
     # linux
-    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611292/download
-    echo "41f2df28839107b0dbefe377dca81a1cd57289c04a5eb47cc60d27e69b941f251eeaa13f8b117a299507b242f74969a91c2733a8c20b65f49549ee8732cbebe1  umo-linux.tar.gz" | sha512sum -c
+    curl -sL -o umo-linux.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/185011459/download
+    echo "67744d162ac45360c988f0804c956e1b68cbedd91d8ed85b1371f10a03040f7c89ac3846852c5442a6769a5c49dcb1aa73c000a3b5fc65eb31c97b9646077b30  umo-linux.tar.gz" | sha512sum -c
     tar xf umo-linux.tar.gz
     mv umo/umo ${_linux}/
 
     # macos universal2
-    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/179611301/download
-    echo "d59ebe82fbdb6f036fc1af9eff46f35804eaa0bf405a3948b59dd15e66c42f8cfd1cddbb7feb6b5b3b284977ac3ae61f27efc6a9480bc3f84b42825b5b45d170  umo-macos.tar.gz" | sha512sum -c
+    curl -sL -o umo-macos.tar.gz https://gitlab.com/modding-openmw/umo/-/package_files/185011493/download
+    echo "fcd003c484c1ba9d1d165840ecbfd49403e1b2d013461b7fdd01d142e3c9d15df1261ed5bfe90b389387581408eb8bfd447d073ef6e863a6c30af9c05b3566b0  umo-macos.tar.gz" | sha512sum -c
     tar xf umo-macos.tar.gz
     mv umo/umo* ${_macos}/
 
     # windows
-    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/179611310/download
-    echo "f51e7701d6f4b44eb86cfa326b883ea0f00a530944d232ee220a58e15e0978f0c6b42d30b8a9a71e59187557dcee309f71ac0ba3866c9eb33c9e44503419c3b8  umo-windows.zip" | sha512sum -c
+    curl -sL -o umo-windows.zip https://gitlab.com/modding-openmw/umo/-/package_files/185011517/download
+    echo "73bd78049d635ad337380d80fc79672b157db47bb1fe62b8bc873886b544414b4cbc9ab27d0b7926e1c6b9a70ab4b2aed7a0c0f1c5ebffb5a4db9ebbaba7dbed  umo-windows.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     cd ${_windows}/
     unzip -oqq ../umo-windows.zip || printf "" #TODO: use 7z
@@ -79,9 +80,9 @@ function get_tes3cmd() {
 
 function get_delta() {
     # macos
-    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/0.22.0/downloads/delta-plugin-0.22.0-darwin-amd64.zip
-    echo "e5a989d3ec8cc8fd5b2b10384113e8165c906e81a4db09b7bfc67cc1d379ad2391f01c318f2e4cf87ba2cb413f8baf483627ac9a01fa5fbbb2d58991497e482b  delta-plugin-0.22.0-darwin-amd64.zip" | sha512sum -c
-    unzip -oqq delta-plugin-0.22.0-darwin-amd64.zip
+    curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-darwin-amd64.zip
+    echo "1962ca33df4d9d6d49616c16f14ea0c123bd7c40062581642579921fa544e8bb5ac4df987fa043bc20d8e016423043de151f04b7ac7b3c4b958a46c5041121c8  delta-plugin-${delta_version}-darwin-amd64.zip" | sha512sum -c
+    unzip -oqq delta-plugin-${delta_version}-darwin-amd64.zip
     mv delta_plugin ${_macos}/
     mv README.md ${_macos}/Readmes/README-DeltaPlugin.md
     mv LICENSE ${_macos}/Readmes/LICENSE-DeltaPlugin
@@ -90,7 +91,7 @@ function get_delta() {
 
     # windows
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-windows-amd64.zip
-    echo "86b1b16fb530ff9c36d7f3d7455b1d31b0a3139d52d3925a487d9120fb09e43dd229c95417cb6bdb3fc70649e4ef45f12247b3a4785fa19a0256a18023426a60  delta-plugin-${delta_version}-windows-amd64.zip" | sha512sum -c
+    echo "8f2a589a2e51a69290bb40a4f6ff594e76467dc6ff6c982dcef0d98ba2ce824bafd2d61dd22f9cd7236dcd0cfff38be138aeb90f16a36938d9ccc874d12819ba  delta-plugin-${delta_version}-windows-amd64.zip" | sha512sum -c
     unzip -qq delta-plugin-${delta_version}-windows-amd64.zip
     mv delta_plugin.exe ${_windows}/
     mv README.md ${_windows}/Readmes/README-DeltaPlugin.md
@@ -100,7 +101,7 @@ function get_delta() {
 
     # linux
     curl -sLO https://gitlab.com/bmwinger/delta-plugin/-/releases/${delta_version}/downloads/delta-plugin-${delta_version}-linux-amd64.zip
-    echo "e00c895efe07649d76cf554f80709917d4a916f413b5d6b0497b75d009c27496e516e9260177f64e29d8f8421507ed98ebd65b94ce7ddcdf5da0a3fb791c097b  delta-plugin-${delta_version}-linux-amd64.zip" | sha512sum -c
+    echo "37a0a3ce8ea6e96690ca2450bace3c7ed23589828b5127256d69fa923013498d3533b77bf04afc819f81f8c080a73f327d34dbdd030ca2d2903e7d57fedc9148  delta-plugin-${delta_version}-linux-amd64.zip" | sha512sum -c
     unzip -oqq delta-plugin-${delta_version}-linux-amd64.zip
     mv delta_plugin ${_linux}/
     mv README.md ${_linux}/Readmes/README-DeltaPlugin.md
@@ -111,24 +112,36 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "a0ed379af4a9c8c3030045c6c0cf5d28514439bf10df1215545492d437d81aa0944d3b7c32929a720fa26781ed6ab2751d86a2d74fa9ef7b9d9dd44ad1c89d53  s3lightfixes-linux.zip" | sha512sum -c
+    echo "89be0e5d42e0dd676bd0e306b16d0716b56c0da3a30ba00b29c783e90b4ece204cf4d837b9a9cd14360226f60989ece0de436e2b5a5eeed8a4de5b120c0b8667 s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
-    mv s3lightfixes ${_linux}/
+    mv s3lightfixes Readme.md ${_linux}/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "128593b3fd13f2a59ab9390c68f84665fb772da425c99b7ff98b398986e7e15155e5d01c5e287ce7ee5d218684baa9ced0ac437d158d2245133af5718e86f819  s3lightfixes-mac.zip" | sha512sum -c
+    echo "cd57fb092fa9204b1cc59b1672135365a5da033318a6f897990e4de5f57d75877e61091ab1795f0863f96d063c6e2aae39fc74029bc5f520aecc4574c3fb92ff s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
-    mv s3lightfixes ${_macos}/
+    mv s3lightfixes Readme.md ${_macos}/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "bfb484036d75a40d257425088a905e7edfa79c5668d8ed1959aa73a3517eb954e1d258de90bf77987a29e8c7bbba01fc771f115a6c4cd1a79903415b8194de93  s3lightfixes-win.zip" | sha512sum -c
+    echo "f09d688f18b7395a9ec2a5cc06747e517c822ecd3bcae1785b660a600b1950fc95ccdfae80770f8c6ea37211abcbf1b40eed779effa8716d5dd8fa356dd91372 s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
-    mv s3lightfixes.exe ${_windows}/
+    mv s3lightfixes.exe Readme.md ${_windows}/
+}
 
-    curl -sL -o README-s3lightfixes.md https://raw.githubusercontent.com/magicaldave/S3LightFixes/refs/heads/main/Readme.md
-    cp README-s3lightfixes.md ${_linux}/Readmes/
-    cp README-s3lightfixes.md ${_macos}/Readmes/
-    cp README-s3lightfixes.md ${_windows}/Readmes/
+function get_vfstool() {
+    curl -sL -o vfstool-linux.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/ubuntu-latest.zip
+    echo "80fb19181b964984b4f214e8e6d4c0452cf2ceb4c9f506a0fbbcaf96a2784e60d037f20c7f97326756c5d4bdd53825022951bb5e50fc516fa54f8de5eaea32ac vfstool-linux.zip" | sha512sum -c
+    unzip -qq vfstool-linux.zip
+    mv vfstool README.md ${_linux}/
+
+    curl -sL -o vfstool-mac.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/macos-latest.zip
+    echo "68c448da184da7cc317734523c69e5d49051350fee71175b9bf593a9d972a6efdbe218b1610b630541d6d7ebec9a23b7bcb9d0562742c5dd73acb986ed1a18c6 vfstool-mac.zip" | sha512sum -c
+    unzip -qq vfstool-mac.zip
+    mv vfstool README.md ${_macos}/
+
+    curl -sL -o vfstool-win.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/windows-latest.zip
+    echo "5ffa892eb1eb469c906d45109870def7ec549d514b7f54b0e3b7d72879cad547439900dfb62dc7e56414457738b4f59019c47066494d367158058b3f01559896 vfstool-win.zip" | sha512sum -c
+    unzip -qq vfstool-win.zip
+    mv vfstool.exe README.md ${_windows}/
 }
 
 function get_groundcoverify() {
@@ -188,6 +201,7 @@ function main() {
     get_lightfixes
     get_groundcoverify
     get_validator
+    get_vfstool
 
     version="$(git describe --tags)"
     for d in ${_linux} ${_windows} ${_macos}; do
@@ -201,6 +215,7 @@ MOMW Configurator version:		$configurator_version
 TES3CMD version:				$tes3cmd_version
 Delta Plugin version:			$delta_version
 S3LightFixes version:			$lightfixes_version
+VFSTool version:                $vfstool_version
 Groundcoverify version:			$groundcoverify_version
 OpenMW-Validator version:		$validator_version
 EOF
