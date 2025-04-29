@@ -130,17 +130,17 @@ function get_lightfixes() {
 
 function get_vfstool() {
     curl -sL -o vfstool-linux.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/ubuntu-latest.zip
-    echo "80fb19181b964984b4f214e8e6d4c0452cf2ceb4c9f506a0fbbcaf96a2784e60d037f20c7f97326756c5d4bdd53825022951bb5e50fc516fa54f8de5eaea32ac vfstool-linux.zip" | sha512sum -c
+    echo "8d8be9171e243fa065b7f9b14d2a6d4ff370bff3a5caa7b42f3e52bcc2065338ad47a65899b47f6b37737ee9a66c0967f4cdb0abd73289c19503a572264a28ff vfstool-linux.zip" | sha512sum -c
     unzip -qq vfstool-linux.zip
     mv vfstool README.md ${_linux}/
 
     curl -sL -o vfstool-mac.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/macos-latest.zip
-    echo "68c448da184da7cc317734523c69e5d49051350fee71175b9bf593a9d972a6efdbe218b1610b630541d6d7ebec9a23b7bcb9d0562742c5dd73acb986ed1a18c6 vfstool-mac.zip" | sha512sum -c
+    echo "4315825e86b12dabc74005b1039876c103f19f37543364ae6bbb3d0f8fb0c36562cfcecca406d45339c69dbab8768442411caed6d8777869ad891bce4e686fb4 vfstool-mac.zip" | sha512sum -c
     unzip -qq vfstool-mac.zip
     mv vfstool README.md ${_macos}/
 
     curl -sL -o vfstool-win.zip https://github.com/magicaldave/vfstool/releases/download/v${vfstool_version}/windows-latest.zip
-    echo "5ffa892eb1eb469c906d45109870def7ec549d514b7f54b0e3b7d72879cad547439900dfb62dc7e56414457738b4f59019c47066494d367158058b3f01559896 vfstool-win.zip" | sha512sum -c
+    echo "0c21a745300bb27f0abe55e94f517782fcaed5108dd92a2ead5f3793ed28dfe10c2319c834c155a93b1c087e5e1f09e32fdac2adbff7c778138be7a09142573e vfstool-win.zip" | sha512sum -c
     unzip -qq vfstool-win.zip
     mv vfstool.exe README.md ${_windows}/
 }
