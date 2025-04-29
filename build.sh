@@ -12,7 +12,8 @@ delta_version=0.22.3
 lightfixes_version=0.3.29
 groundcoverify_version=0.2.2
 validator_version=1.14
-vfstool_version=0.1.5
+vfstool_version=0.1.6
+_7zip_version=2409
 
 function get_umo() {
     # linux
@@ -144,6 +145,28 @@ function get_vfstool() {
     mv vfstool.exe README.md ${_windows}/
 }
 
+function get_7zip() {
+    curl -sL -o 7zip-linux.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-linux-x64.tar.xz
+    echo "aebf18d861944e2b52d91434b1d59d80a5aadf3b2e80ab3d248357bcaf3c429442caf4ad3297057a559f2719cae9ce5b0aa391963570ffa75b6dcdf1f3c25603 7zip-linux.tar.xz" | sha512sum -c
+    tar xf 7zip-linux.tar.xz
+    rm -rf 7zip-linux.tar.xz MANUAL 7zz History.txt License.txt
+    mv 7zzs ${_linux}/7zip
+    mv readme.txt ${_linux}/Readmes/README-7zip.txt
+
+    curl -sL -o 7zip-mac.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-mac.tar.xz
+    echo "c0879717d13930c4bbd132171fb20bb17a04e5b5cc357bdc1c8cc2c8d005f8b1761b41c5bef9cb0fea11b149de98a384d8fa017ebc64b2d56ba4af84897de73f 7zip-mac.tar.xz" | sha512sum -c
+    tar xf 7zip-mac.tar.xz
+    rm -rf 7zip-mac.tar.xz MANUAL History.txt License.txt
+    mv 7zz ${_macos}/7zip
+    mv readme.txt ${_macos}/Readmes/README-7zip.txt
+
+    # Sucks to suck - portable windows builds of 7zip are not versioned, and are only provided as the latest release.
+    # A dynamically linked version exists in 7zip_extras, but since we want just the bin, we have to be stuck on whatever the latest release is as of the tools pack build
+    curl -sL -o 7zip.exe https://www.7-zip.org/a/7zr.exe
+    echo "44d8504a693ad4d6b79631b653fc19b572de6bbe38713b53c45d9c9d5d3710aa8df93ee867a2a24419ebe883b8255fd18f30f8cf374b2242145fd6acb2189659 7zip.exe" | sha512sum -c
+    mv 7zip.exe ${_windows}/
+}
+
 function get_groundcoverify() {
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Fgroundcoverify/jobs/artifacts/exeify/raw/dist/groundcoverify-linux.tar.gz?job=linux"
     echo "ccc4987c7ac82aebb2bbb87ba24b7dd1a3d2a6825dd4a2a0fc7e57046e52d9307fa2da2e4640402db5da7464ae86dea1853cec0eda3f54b88a4c608257bcacd4  groundcoverify-linux.tar.gz" | sha512sum -c
@@ -202,6 +225,7 @@ function main() {
     get_groundcoverify
     get_validator
     get_vfstool
+    get_7zip
 
     version="$(git describe --tags)"
     for d in ${_linux} ${_windows} ${_macos}; do
@@ -224,6 +248,9 @@ EOF
     tar cpzf ${_linux}.tar.gz ${_linux}
     zip -qqr ${_macos}.zip ${_macos}
     zip -qqr ${_windows}.zip ${_windows}
+
+    # I jest don't feel like fixin' this some other way here, feller
+    cp ${_linux}/Readmes/CHANGELOG-MOMW-Tools-Pack.md CHANGELOG.md
 }
 
 main
