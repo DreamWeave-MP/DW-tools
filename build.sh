@@ -148,6 +148,7 @@ function get_vfstool() {
 function get_7zip() {
     curl -sL -o 7zip-linux.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-linux-x64.tar.xz
     echo "aebf18d861944e2b52d91434b1d59d80a5aadf3b2e80ab3d248357bcaf3c429442caf4ad3297057a559f2719cae9ce5b0aa391963570ffa75b6dcdf1f3c25603 7zip-linux.tar.xz" | sha512sum -c
+    ls -la1 # Nani?
     tar xf 7zip-linux.tar.xz
     rm -rf 7zip-linux.tar.xz MANUAL 7zz History.txt License.txt
     mv 7zzs ${_linux}/7zip
