@@ -254,6 +254,7 @@ S3LightFixes version:			$lightfixes_version
 VFSTool version:                $vfstool_version
 Groundcoverify version:			$groundcoverify_version
 OpenMW-Validator version:		$validator_version
+7-zip version:                  $_7zip_version
 EOF
     done
 
