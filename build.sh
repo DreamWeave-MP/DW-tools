@@ -150,22 +150,26 @@ function get_7zip() {
     echo "aebf18d861944e2b52d91434b1d59d80a5aadf3b2e80ab3d248357bcaf3c429442caf4ad3297057a559f2719cae9ce5b0aa391963570ffa75b6dcdf1f3c25603 7zip-linux.tar.xz" | sha512sum -c
     ls -la1 # Nani?
     tar xf 7zip-linux.tar.xz
-    rm -rf 7zip-linux.tar.xz MANUAL 7zz History.txt License.txt
-    mv 7zzs ${_linux}/7zip
+    rm -rf 7zip-linux.tar.xz MANUAL 7zz History.txt 
+    mv 7zzs ${_linux}/7zmo
     mv readme.txt ${_linux}/Readmes/README-7zip.txt
+    mv License.txt ${_linux}/Readmes/License-7zip.txt
 
     curl -sL -o 7zip-mac.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-mac.tar.xz
     echo "c0879717d13930c4bbd132171fb20bb17a04e5b5cc357bdc1c8cc2c8d005f8b1761b41c5bef9cb0fea11b149de98a384d8fa017ebc64b2d56ba4af84897de73f 7zip-mac.tar.xz" | sha512sum -c
     tar xf 7zip-mac.tar.xz
-    rm -rf 7zip-mac.tar.xz MANUAL History.txt License.txt
-    mv 7zz ${_macos}/7zip
+    rm -rf 7zip-mac.tar.xz MANUAL History.txt
+    mv 7zz ${_macos}/7zmo
     mv readme.txt ${_macos}/Readmes/README-7zip.txt
+    mv License.txt ${_macos}/Readmes/License-7zip.txt
 
-    # Sucks to suck - portable windows builds of 7zip are not versioned, and are only provided as the latest release.
-    # A dynamically linked version exists in 7zip_extras, but since we want just the bin, we have to be stuck on whatever the latest release is as of the tools pack build
-    curl -sL -o 7zip.exe https://www.7-zip.org/a/7zr.exe
-    echo "44d8504a693ad4d6b79631b653fc19b572de6bbe38713b53c45d9c9d5d3710aa8df93ee867a2a24419ebe883b8255fd18f30f8cf374b2242145fd6acb2189659 7zip.exe" | sha512sum -c
-    mv 7zip.exe ${_windows}/
+    curl -sL -o 7zip.msi https://www.7-zip.org/a/7z${_7zip_version}-x64.msi
+    echo "a3396a70b739f3a80b25fe64103d1e98ea584dcdbdba740884ea10e00edfb37966ceb85f5cca995865fe90371eadff9df8132124d3dc2598a2d78bf86f6ddd6e  7zip.msi" | sha512sum -c
+    ${_linux}/7zmo x 7zip.msi _7zip.dll _7z.exe readme.txt License.txt
+    mv 7zip.exe 7zmo.exe
+    mv 7zmo.exe 7zip.dll ${_windows}/
+    mv readme.txt ${_windows}/Readmes/README-7zip.txt
+    mv License.txt ${_windows}/Readmes/License-7zip.txt
 }
 
 function get_groundcoverify() {
