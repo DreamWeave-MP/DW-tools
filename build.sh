@@ -174,7 +174,8 @@ function get_7zip() {
     ${_linux}/7zmo x 7zip.msi _7zip.dll _7z.exe readme.txt License.txt
     mv _7z.exe 7zmo.exe
     mv _7zip.dll 7zip.dll
-    mv 7zmo.exe 7zip.dll ${_windows}/
+    mv _7z.dll 7z.dll
+    mv 7zmo.exe 7zip.dll 7z.dll ${_windows}/
     mv readme.txt ${_windows}/Readmes/README-7zip.txt
     mv License.txt ${_windows}/Readmes/License-7zip.txt
 }
