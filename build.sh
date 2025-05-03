@@ -171,7 +171,7 @@ function get_7zip() {
 
     curl -sL -o 7zip.msi https://www.7-zip.org/a/7z${_7zip_version}-x64.msi
     echo "a3396a70b739f3a80b25fe64103d1e98ea584dcdbdba740884ea10e00edfb37966ceb85f5cca995865fe90371eadff9df8132124d3dc2598a2d78bf86f6ddd6e  7zip.msi" | sha512sum -c
-    ${_linux}/7zmo x 7zip.msi _7zip.dll _7z.exe readme.txt License.txt
+    ${_linux}/7zmo x 7zip.msi _7zip.dll _7z.dll _7z.exe readme.txt License.txt
     mv _7z.exe 7zmo.exe
     mv _7zip.dll 7zip.dll
     mv _7z.dll 7z.dll
