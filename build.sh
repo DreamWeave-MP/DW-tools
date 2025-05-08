@@ -9,7 +9,7 @@ umo_version=0.8.23
 configurator_version=1.18
 tes3cmd_version=0.40-PRE-RELEASE-2
 delta_version=0.22.3
-lightfixes_version=0.3.29
+lightfixes_version=0.3.3
 groundcoverify_version=0.2.2
 validator_version=1.14
 vfstool_version=0.1.6
@@ -113,19 +113,19 @@ function get_delta() {
 
 function get_lightfixes() {
     curl -sL -o s3lightfixes-linux.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/ubuntu-latest.zip
-    echo "89be0e5d42e0dd676bd0e306b16d0716b56c0da3a30ba00b29c783e90b4ece204cf4d837b9a9cd14360226f60989ece0de436e2b5a5eeed8a4de5b120c0b8667 s3lightfixes-linux.zip" | sha512sum -c
+    echo "5f062b02476f07a1baa2669832eaa2f9ce96e3d231871383be0732e076ea846dfc5df95d7a09e18c4ae9859b8d1d67df9c4fb7c54b797f3174d6970809f07b3c s3lightfixes-linux.zip" | sha512sum -c
     unzip -qq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
     mv Readme.md ${_linux}/Readmes/Readme-s3lightfixes.md
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/macos-latest.zip
-    echo "cd57fb092fa9204b1cc59b1672135365a5da033318a6f897990e4de5f57d75877e61091ab1795f0863f96d063c6e2aae39fc74029bc5f520aecc4574c3fb92ff s3lightfixes-mac.zip" | sha512sum -c
+    echo "7b126bd69f4092c8bc808f463168426837a5095a01cc0ce182e88cf97ddf554dbbc1712361cbb28d4766750f58e783d32a07f99afa2984558f137ffddc68a84f s3lightfixes-mac.zip" | sha512sum -c
     unzip -qq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
     mv Readme.md ${_macos}/Readmes/Readme-s3lightfixes.md
 
     curl -sL -o s3lightfixes-win.zip https://github.com/magicaldave/S3LightFixes/releases/download/v${lightfixes_version}/windows-latest.zip
-    echo "f09d688f18b7395a9ec2a5cc06747e517c822ecd3bcae1785b660a600b1950fc95ccdfae80770f8c6ea37211abcbf1b40eed779effa8716d5dd8fa356dd91372 s3lightfixes-win.zip" | sha512sum -c
+    echo "a5226f2dd65f063aa92e642c29c52bae77491791ae4449189e59f8b8454b9257fc51a01316c85ab1b0f5ed9d9def9e7311f274c368f114327ff05fb7153ff8d2 s3lightfixes-win.zip" | sha512sum -c
     unzip -qq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
     mv Readme.md ${_windows}/Readmes/Readme-s3lightfixes.md
