@@ -190,7 +190,7 @@ VFSTool version:                $vfstool_version
 EOF
     done
 
-    tar cpzf ${_linux}.tar.gz ${_linux}
+    zip -qqr ${_linux}.zip ${_linux}
     zip -qqr ${_macos}.zip ${_macos}
     zip -qqr ${_windows}.zip ${_windows}
 

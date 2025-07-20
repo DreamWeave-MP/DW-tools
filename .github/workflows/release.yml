@@ -1,0 +1,30 @@
+name: Build and Release Toolz
+
+on:
+    push:
+        tags:
+            - "*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Compile resources
+      run: ./compile_tools.sh
+
+    - name: Create release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          dreamweave-tools-linux.zip
+          dreamweave-tools-macos.zip
+          dreamweave-tools-windows.zip
+        make_latest: true
+        body: |
+          Freshly baked tools - batch ${{ github.ref_name }}
+          • Built: ${{ github.run_number }} (Attempt ${{ github.run_attempt }})
+          • Commit: ${{ github.sha }}
