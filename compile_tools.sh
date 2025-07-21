@@ -134,14 +134,14 @@ function get_lightfixes() {
 
 function get_vfstool() {
     curl -sL -o vfstool-linux.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/ubuntu-latest.zip
-    echo "ff26568fa740e56bdd6e81cbb9fbefb9f5f587b311c3c312bd6694653aab6c7c vfstool-linux.zip" | sha256sum -c
+    echo "4991772884bb975dd808c8ff053e7449fc0127a28f731ab648272975d5324e69 vfstool-linux.zip" | sha256sum -c
     unzip -oqq vfstool-linux.zip
     mv vfstool ${_linux}/
     mv README.md ${_linux}/Doc/Readme-vfstool.md
     mv *.bundle ${_linux}/Cert/
 
     curl -sL -o vfstool-mac.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/macos-latest.zip
-    echo "4991772884bb975dd808c8ff053e7449fc0127a28f731ab648272975d5324e69 vfstool-mac.zip" | sha256sum -c
+    echo "ff26568fa740e56bdd6e81cbb9fbefb9f5f587b311c3c312bd6694653aab6c7c vfstool-mac.zip" | sha256sum -c
     unzip -oqq vfstool-mac.zip
     mv vfstool ${_macos}/
     mv README.md ${_macos}/Doc/Readme-vfstool.md
