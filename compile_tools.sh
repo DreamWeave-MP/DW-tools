@@ -107,7 +107,7 @@ function get_tes3merge() {
     # echo "a5226f2dd65f063aa92e642c29c52bae77491791ae4449189e59f8b8454b9257fc51a01316c85ab1b0f5ed9d9def9e7311f274c368f114327ff05fb7153ff8d2 s3lightfixes-win.zip" | sha512sum -c
     unzip -oqq tes3merge-win.zip
     ls -la1
-    mv TES3Merge-win/tes3merge.exe TES3Merge-win/TES3Merge.ini ${_windows}/
+    mv tes3merge.exe TES3Merge.ini ${_windows}/
 }
 
 function get_lightfixes() {
