@@ -103,7 +103,7 @@ function get_tes3merge() {
     unzip -oqq tes3merge-osx.zip
     mv publish/osx/tes3merge publish/osx/TES3Merge.ini ${_macos}/
 
-    curl -sL -o TES3Merge-win.zip https://github.com/DreamWeave-MP/TES3Merge/releases/download/${tes3merge_version}/windows-latest.zip
+    curl -sL -o tes3merge-win.zip https://github.com/DreamWeave-MP/TES3Merge/releases/download/${tes3merge_version}/TES3Merge-win.zip
     # echo "a5226f2dd65f063aa92e642c29c52bae77491791ae4449189e59f8b8454b9257fc51a01316c85ab1b0f5ed9d9def9e7311f274c368f114327ff05fb7153ff8d2 s3lightfixes-win.zip" | sha512sum -c
     unzip -oqq tes3merge-win.zip
     mv TES3Merge-win/tes3merge.exe TES3Merge-win/TES3Merge.ini ${_windows}/
