@@ -94,17 +94,17 @@ function get_tes3cmd() {
 
 function get_tes3merge() {
     curl -sL -o tes3merge-linux.zip https://github.com/DreamWeave-MP/TES3Merge/releases/download/${tes3merge_version}/TES3Merge-linux.zip
-    echo "18264207ffd6c069c5a61daac1f22daf6ac6b5bd6e8d135fa3fb9b4c6fe78566 tes3merge-linux.zip" | sha512sum -c
+    echo "18264207ffd6c069c5a61daac1f22daf6ac6b5bd6e8d135fa3fb9b4c6fe78566 tes3merge-linux.zip" | sha256sum -c
     unzip -oqq tes3merge-linux.zip
     mv publish/linux/tes3merge publish/linux/TES3Merge.ini ${_linux}/
 
     curl -sL -o tes3merge-osx.zip https://github.com/DreamWeave-MP/TES3Merge/releases/download/${tes3merge_version}/tes3merge-osx.zip
-    echo "4136355a2c40f13638cffcee97d706e46d53044821c717a1d4af8166d67c6114 tes3merge-osx.zip" | sha512sum -c
+    echo "4136355a2c40f13638cffcee97d706e46d53044821c717a1d4af8166d67c6114 tes3merge-osx.zip" | sha256sum -c
     unzip -oqq tes3merge-osx.zip
     mv publish/osx/tes3merge publish/osx/TES3Merge.ini ${_macos}/
 
     curl -sL -o tes3merge-win.zip https://github.com/DreamWeave-MP/TES3Merge/releases/download/${tes3merge_version}/TES3Merge-win.zip
-    echo "2ae05b1e27b89b82ee7a054dfe3cb419c5fb9e3eeb47a7275f474c92fba0614b tes3merge-win.zip" | sha512sum -c
+    echo "2ae05b1e27b89b82ee7a054dfe3cb419c5fb9e3eeb47a7275f474c92fba0614b  tes3merge-win.zip" | sha256sum -c
     unzip -oqq tes3merge-win.zip
     mv tes3merge.exe TES3Merge.ini ${_windows}/
 }
