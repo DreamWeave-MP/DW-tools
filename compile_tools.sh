@@ -64,9 +64,9 @@ function get_umo() {
     cd -
 
     curl -sL -o README-umo.org https://gitlab.com/modding-openmw/umo/-/raw/master/README.org
-    cp README-umo.org ${_linux}/Readmes/
-    cp README-umo.org ${_macos}/Readmes/
-    cp README-umo.org ${_windows}/Readmes/
+    cp README-umo.org ${_linux}/Doc/
+    cp README-umo.org ${_macos}/Doc/
+    cp README-umo.org ${_windows}/Doc/
 }
 
 function get_tes3cmd() {
@@ -75,8 +75,7 @@ function get_tes3cmd() {
     echo "f07ff02343b8dbf3b3ed3791bfdced30fa4edcffde9d682d1ec062d454d5a489c36097bff41147b578042848dd3e512af52414d568de71b0eb5fad01f78570b1  tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz" | sha512sum -c
     tar xvf tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz
     mv tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64 ${_linux}/tes3cmd
-    mv Docs ${_linux}/Readmes/Docs-TES3CMD
-    mv Readme.txt ${_linux}/Readmes/Readme-TES3CMD.txt
+    mv Readme.txt ${_linux}/Doc/Readme-TES3CMD.txt
 
     # windows
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2-win.zip?job=build_win"
@@ -84,13 +83,13 @@ function get_tes3cmd() {
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -qq tes3cmd.0.40-PRE-RELEASE-2-win.zip || printf ""
     mv tes3cmd.0.40-PRE-RELEASE-2/tes3cmd.0.40-PRE-RELEASE-2.exe ${_windows}/tes3cmd.exe
-    cp -r ${_linux}/Readmes/Docs-TES3CMD ${_linux}/Readmes/Readme-TES3CMD.txt ${_windows}/Readmes/
+    cp ${_linux}/Doc/Readme-TES3CMD.txt ${_windows}/Doc/
 
     # macos
     curl -sLO 'https://gitlab.com/modding-openmw/tes3cmd/-/raw/master/tes3cmd?ref_type=heads&inline=false'
     # echo "e1628b6006189eb651f9569e207752f84d56a37cbddc39a96949ec4594f1302ea5ea9a096d469c616d365283593cc1bc8774b963f31f22adbbb869abdfaea4c5  tes3cmd-macOS-x86_64.zip" | sha512sum -c
     mv tes3cmd ${_macos}/tes3cmd
-    cp -r ${_linux}/Readmes/Docs-TES3CMD ${_linux}/Readmes/Readme-TES3CMD.txt ${_macos}/Readmes/
+    cp -r ${_linux}/Doc/Readme-TES3CMD.txt ${_macos}/Doc/
 }
 
 function get_lightfixes() {
@@ -98,19 +97,22 @@ function get_lightfixes() {
     # echo "5f062b02476f07a1baa2669832eaa2f9ce96e3d231871383be0732e076ea846dfc5df95d7a09e18c4ae9859b8d1d67df9c4fb7c54b797f3174d6970809f07b3c s3lightfixes-linux.zip" | sha512sum -c
     unzip -oqq s3lightfixes-linux.zip
     mv s3lightfixes ${_linux}/
-    mv Readme.md ${_linux}/Readmes/Readme-s3lightfixes.md
+    mv Readme.md ${_linux}/Doc/Readme-s3lightfixes.md
+    mv *.bundle ${_linux}/Cert/
 
     curl -sL -o s3lightfixes-mac.zip https://github.com/DreamWeave-MP/S3LightFixes/releases/download/${lightfixes_version}/macos-latest.zip
     # echo "7b126bd69f4092c8bc808f463168426837a5095a01cc0ce182e88cf97ddf554dbbc1712361cbb28d4766750f58e783d32a07f99afa2984558f137ffddc68a84f s3lightfixes-mac.zip" | sha512sum -c
     unzip -oqq s3lightfixes-mac.zip
     mv s3lightfixes ${_macos}/
-    mv Readme.md ${_macos}/Readmes/Readme-s3lightfixes.md
+    mv Readme.md ${_macos}/Doc/Readme-s3lightfixes.md
+    mv *.bundle ${_macos}/Cert/
 
     curl -sL -o s3lightfixes-win.zip https://github.com/DreamWeave-MP/S3LightFixes/releases/download/${lightfixes_version}/windows-latest.zip
     # echo "a5226f2dd65f063aa92e642c29c52bae77491791ae4449189e59f8b8454b9257fc51a01316c85ab1b0f5ed9d9def9e7311f274c368f114327ff05fb7153ff8d2 s3lightfixes-win.zip" | sha512sum -c
     unzip -oqq s3lightfixes-win.zip
     mv s3lightfixes.exe ${_windows}/
-    mv Readme.md ${_windows}/Readmes/Readme-s3lightfixes.md
+    mv Readme.md ${_windows}/Doc/Readme-s3lightfixes.md
+    mv *.bundle ${_windows}/Cert/
 }
 
 function get_vfstool() {
@@ -118,38 +120,40 @@ function get_vfstool() {
     # echo "8d8be9171e243fa065b7f9b14d2a6d4ff370bff3a5caa7b42f3e52bcc2065338ad47a65899b47f6b37737ee9a66c0967f4cdb0abd73289c19503a572264a28ff vfstool-linux.zip" | sha512sum -c
     unzip -oqq vfstool-linux.zip
     mv vfstool ${_linux}/
-    mv README.md ${_linux}/Readmes/Readme-vfstool.md
+    mv README.md ${_linux}/Doc/Readme-vfstool.md
+    mv *.bundle ${_linux}/Cert/
 
     curl -sL -o vfstool-mac.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/macos-latest.zip
     # echo "4315825e86b12dabc74005b1039876c103f19f37543364ae6bbb3d0f8fb0c36562cfcecca406d45339c69dbab8768442411caed6d8777869ad891bce4e686fb4 vfstool-mac.zip" | sha512sum -c
     unzip -oqq vfstool-mac.zip
     mv vfstool ${_macos}/
-    mv README.md ${_macos}/Readmes/Readme-vfstool.md
+    mv README.md ${_macos}/Doc/Readme-vfstool.md
+    mv *.bundle ${_macos}/Cert/
 
     curl -sL -o vfstool-win.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/windows-latest.zip
     # echo "0c21a745300bb27f0abe55e94f517782fcaed5108dd92a2ead5f3793ed28dfe10c2319c834c155a93b1c087e5e1f09e32fdac2adbff7c778138be7a09142573e vfstool-win.zip" | sha512sum -c
     unzip -oqq vfstool-win.zip
     mv vfstool.exe ${_windows}/
-    mv README.md ${_windows}/Readmes/Readme-vfstool.md
+    mv README.md ${_windows}/Doc/Readme-vfstool.md
+    mv *.bundle ${_windows}/Cert/
 }
 
 function get_7zip() {
     curl -sL -o 7zip-linux.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-linux-x64.tar.xz
     # echo "aebf18d861944e2b52d91434b1d59d80a5aadf3b2e80ab3d248357bcaf3c429442caf4ad3297057a559f2719cae9ce5b0aa391963570ffa75b6dcdf1f3c25603 7zip-linux.tar.xz" | sha512sum -c
-    ls -la1 # Nani?
     tar xf 7zip-linux.tar.xz
     rm -rf 7zip-linux.tar.xz MANUAL 7zz History.txt 
     mv 7zzs ${_linux}/7zmo
-    mv readme.txt ${_linux}/Readmes/README-7zip.txt
-    mv License.txt ${_linux}/Readmes/License-7zip.txt
+    mv readme.txt ${_linux}/Doc/README-7zip.txt
+    mv License.txt ${_linux}/Doc/License-7zip.txt
 
     curl -sL -o 7zip-mac.tar.xz https://www.7-zip.org/a/7z${_7zip_version}-mac.tar.xz
     # echo "c0879717d13930c4bbd132171fb20bb17a04e5b5cc357bdc1c8cc2c8d005f8b1761b41c5bef9cb0fea11b149de98a384d8fa017ebc64b2d56ba4af84897de73f 7zip-mac.tar.xz" | sha512sum -c
     tar xf 7zip-mac.tar.xz
     rm -rf 7zip-mac.tar.xz MANUAL History.txt
     mv 7zz ${_macos}/7zmo
-    mv readme.txt ${_macos}/Readmes/README-7zip.txt
-    mv License.txt ${_macos}/Readmes/License-7zip.txt
+    mv readme.txt ${_macos}/Doc/README-7zip.txt
+    mv License.txt ${_macos}/Doc/License-7zip.txt
 
     curl -sL -o 7zip.msi https://www.7-zip.org/a/7z${_7zip_version}-x64.msi
     # echo "a3396a70b739f3a80b25fe64103d1e98ea584dcdbdba740884ea10e00edfb37966ceb85f5cca995865fe90371eadff9df8132124d3dc2598a2d78bf86f6ddd6e  7zip.msi" | sha512sum -c
@@ -158,18 +162,21 @@ function get_7zip() {
     mv _7zip.dll 7zip.dll
     mv _7z.dll 7z.dll
     mv 7zmo.exe 7zip.dll 7z.dll ${_windows}/
-    mv readme.txt ${_windows}/Readmes/README-7zip.txt
-    mv License.txt ${_windows}/Readmes/License-7zip.txt
+    mv readme.txt ${_windows}/Doc/README-7zip.txt
+    mv License.txt ${_windows}/Doc/License-7zip.txt
 }
 
 function main() {
-    mkdir -p ${_linux}/Readmes
-    mkdir -p ${_macos}/Readmes
-    mkdir -p ${_windows}/Readmes
+    mkdir -p ${_linux}/Doc
+    mkdir -p ${_linux}/Cert
+    mkdir -p ${_macos}/Doc
+    mkdir -p ${_macos}/Cert
+    mkdir -p ${_windows}/Doc
+    mkdir -p ${_windows}/Cert
 
-    cp CHANGELOG.md ${_linux}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
-    cp CHANGELOG.md ${_macos}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
-    cp CHANGELOG.md ${_windows}/Readmes/CHANGELOG-MOMW-Tools-Pack.md
+    cp CHANGELOG.md ${_linux}/Doc/CHANGELOG-DreamWeave-Tools.md
+    cp CHANGELOG.md ${_macos}/Doc/CHANGELOG-DreamWeave-Tools.md
+    cp CHANGELOG.md ${_windows}/Doc/CHANGELOG-DreamWeave-Tools.md
 
     get_umo
     get_tes3cmd
@@ -195,7 +202,7 @@ EOF
     zip -qqr ${_windows}.zip ${_windows}
 
     # I jest don't feel like fixin' this some other way here, feller
-    cp ${_linux}/Readmes/CHANGELOG-MOMW-Tools-Pack.md CHANGELOG.md
+    cp ${_linux}/Readmes/CHANGELOG-DreamWeave-Tools.md CHANGELOG.md
 }
 
 main
