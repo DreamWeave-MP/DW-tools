@@ -220,7 +220,7 @@ EOF
     zip -qqr ${_windows}.zip ${_windows}
 
     # I jest don't feel like fixin' this some other way here, feller
-    cp ${_linux}/Readmes/CHANGELOG-DreamWeave-Tools.md CHANGELOG.md
+    cp ${_linux}/Doc/CHANGELOG-DreamWeave-Tools.md CHANGELOG.md
 }
 
 main
