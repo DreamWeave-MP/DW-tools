@@ -205,7 +205,7 @@ function main() {
     version="$(git describe --always)"
     for d in ${_linux} ${_windows} ${_macos}; do
         cat > "${d}"/version.txt <<EOF
-Dreamwevae Tools version:		$version
+Dreamweave Tools version:		$version
 S3LightFixes version:			$lightfixes_version
 TES3CMD version:			  $tes3cmd_version
 TES3Merge version:             $tes3merge_version
