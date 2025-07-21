@@ -23,6 +23,7 @@ jobs:
           dreamweave-tools-macos.zip
           dreamweave-tools-windows.zip
         make_latest: true
+        generate release_notes: true
         body: |
           Freshly baked tools - batch ${{ github.ref_name }}
           • Built: ${{ github.run_number }} (Attempt ${{ github.run_attempt }})
