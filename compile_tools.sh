@@ -202,7 +202,7 @@ function main() {
     get_7zip
     get_tes3merge
 
-    version="$(git describe --tags)"
+    version="$(git describe --always)"
     for d in ${_linux} ${_windows} ${_macos}; do
         cat > "${d}"/version.txt <<EOF
 Dreamwevae Tools version:		$version
