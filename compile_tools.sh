@@ -134,21 +134,21 @@ function get_lightfixes() {
 
 function get_vfstool() {
     curl -sL -o vfstool-linux.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/ubuntu-latest.zip
-    # echo "8d8be9171e243fa065b7f9b14d2a6d4ff370bff3a5caa7b42f3e52bcc2065338ad47a65899b47f6b37737ee9a66c0967f4cdb0abd73289c19503a572264a28ff vfstool-linux.zip" | sha512sum -c
+    echo "ff26568fa740e56bdd6e81cbb9fbefb9f5f587b311c3c312bd6694653aab6c7c vfstool-linux.zip" | sha256sum -c
     unzip -oqq vfstool-linux.zip
     mv vfstool ${_linux}/
     mv README.md ${_linux}/Doc/Readme-vfstool.md
     mv *.bundle ${_linux}/Cert/
 
     curl -sL -o vfstool-mac.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/macos-latest.zip
-    # echo "4315825e86b12dabc74005b1039876c103f19f37543364ae6bbb3d0f8fb0c36562cfcecca406d45339c69dbab8768442411caed6d8777869ad891bce4e686fb4 vfstool-mac.zip" | sha512sum -c
+    echo "4991772884bb975dd808c8ff053e7449fc0127a28f731ab648272975d5324e69 vfstool-mac.zip" | sha256sum -c
     unzip -oqq vfstool-mac.zip
     mv vfstool ${_macos}/
     mv README.md ${_macos}/Doc/Readme-vfstool.md
     mv *.bundle ${_macos}/Cert/
 
     curl -sL -o vfstool-win.zip https://github.com/DreamWeave-MP/vfstool/releases/download/${vfstool_version}/windows-latest.zip
-    # echo "0c21a745300bb27f0abe55e94f517782fcaed5108dd92a2ead5f3793ed28dfe10c2319c834c155a93b1c087e5e1f09e32fdac2adbff7c778138be7a09142573e vfstool-win.zip" | sha512sum -c
+    echo "07d3259e402256a3838ed1323e23d120f1c191febb8d7de4c20cd3f6adb02bf4 vfstool-win.zip" | sha256sum -c
     unzip -oqq vfstool-win.zip
     mv vfstool.exe ${_windows}/
     mv README.md ${_windows}/Doc/Readme-vfstool.md
