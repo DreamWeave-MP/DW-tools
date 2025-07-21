@@ -2,8 +2,6 @@ name: Build and Release Toolz
 
 on:
     push:
-        tags:
-            - "*"
 
 jobs:
   build-and-release:
@@ -17,6 +15,7 @@ jobs:
       run: ./compile_tools.sh
 
     - name: Create release
+      if: github.ref_type == 'tag'
       uses: softprops/action-gh-release@v2
       with:
         files: |
