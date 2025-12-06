@@ -87,7 +87,7 @@ function get_tes3cmd() {
 
     # macos
     curl -sLO 'https://gitlab.com/modding-openmw/tes3cmd/-/raw/master/tes3cmd?ref_type=heads&inline=false'
-    echo "29fde259fa7e9ce39e43f243911c2bbf80c7956b42172367521b170211bbbd05e330c4b2fb7cd50eafbd09923e339af3646ab9a1b1273e3c9a0e16fccf2e7e93  tes3cmd-macOS-x86_64.zip" | sha512sum -c
+    echo "6f3248eb04e98db2151143b0918a2e34133bf2c4cc2bed807d755e464f4931b01613f9e87ed1528fdc7077375e977febcf1528f7419f8894d949ac7719985b57  tes3cmd-macOS-x86_64.zip" | sha512sum -c
     mv tes3cmd ${_macos}/tes3cmd
     cp -r ${_linux}/Doc/Readme-TES3CMD.txt ${_macos}/Doc/
 }
