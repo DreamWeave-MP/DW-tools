@@ -72,14 +72,14 @@ function get_umo() {
 function get_tes3cmd() {
     # linux
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz?job=build_linux"
-    echo "f07ff02343b8dbf3b3ed3791bfdced30fa4edcffde9d682d1ec062d454d5a489c36097bff41147b578042848dd3e512af52414d568de71b0eb5fad01f78570b1  tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz" | sha512sum -c
+    echo "87cbf166700b4223a8c63603e7c36adaa3e24d8dc79d4592f5397a6c0a0dbb497cb40576218be0bc516dbb541c54a9ea1933586534a0008e2c231f59842642f9  tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz" | sha512sum -c
     tar xvf tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64.tar.gz
     mv tes3cmd.0.40-PRE-RELEASE-2.linux.x86_64 ${_linux}/tes3cmd
     mv Readme.txt ${_linux}/Doc/Readme-TES3CMD.txt
 
     # windows
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2-win.zip?job=build_win"
-    echo "06fdb7620a00d7402985495901a52ae50228e8e75d314740573c1b3dc3e4daa2ce3b69b04f34862857f880ddd11d42d5363a41bf05fa58651f2ce5e0949d6aee  tes3cmd.0.40-PRE-RELEASE-2-win.zip" | sha512sum -c
+    echo "29fde259fa7e9ce39e43f243911c2bbf80c7956b42172367521b170211bbbd05e330c4b2fb7cd50eafbd09923e339af3646ab9a1b1273e3c9a0e16fccf2e7e93  tes3cmd.0.40-PRE-RELEASE-2-win.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -qq tes3cmd.0.40-PRE-RELEASE-2-win.zip || printf ""
     mv tes3cmd.0.40-PRE-RELEASE-2/tes3cmd.0.40-PRE-RELEASE-2.exe ${_windows}/tes3cmd.exe
@@ -87,7 +87,7 @@ function get_tes3cmd() {
 
     # macos
     curl -sLO 'https://gitlab.com/modding-openmw/tes3cmd/-/raw/master/tes3cmd?ref_type=heads&inline=false'
-    # echo "e1628b6006189eb651f9569e207752f84d56a37cbddc39a96949ec4594f1302ea5ea9a096d469c616d365283593cc1bc8774b963f31f22adbbb869abdfaea4c5  tes3cmd-macOS-x86_64.zip" | sha512sum -c
+    echo "29fde259fa7e9ce39e43f243911c2bbf80c7956b42172367521b170211bbbd05e330c4b2fb7cd50eafbd09923e339af3646ab9a1b1273e3c9a0e16fccf2e7e93  tes3cmd-macOS-x86_64.zip" | sha512sum -c
     mv tes3cmd ${_macos}/tes3cmd
     cp -r ${_linux}/Doc/Readme-TES3CMD.txt ${_macos}/Doc/
 }
