@@ -5,12 +5,12 @@ _linux=dreamweave-tools-linux
 _macos=dreamweave-tools-macos
 _windows=dreamweave-tools-windows
 
-umo_version=0.10.9
+umo_version=0.11
 tes3cmd_version=0.40-PRE-RELEASE-2
-lightfixes_version=0.4.4
-vfstool_version=0.2.0
-tes3merge_version=0.11.3
-_7zip_version=2500
+lightfixes_version=0.4.50
+vfstool_version=0.2.4
+tes3merge_version=0.11.4
+_7zip_version=2501
 
 function list_gitlab_package_files() {
     local repo_url="$1"
