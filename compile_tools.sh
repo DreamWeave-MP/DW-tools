@@ -79,7 +79,7 @@ function get_tes3cmd() {
 
     # windows
     curl -sLO "https://gitlab.com/api/v4/projects/modding-openmw%2Ftes3cmd/jobs/artifacts/master/raw/tes3cmd.0.40-PRE-RELEASE-2-win.zip?job=build_win"
-    echo "29fde259fa7e9ce39e43f243911c2bbf80c7956b42172367521b170211bbbd05e330c4b2fb7cd50eafbd09923e339af3646ab9a1b1273e3c9a0e16fccf2e7e93  tes3cmd.0.40-PRE-RELEASE-2-win.zip" | sha512sum -c
+    echo "ca19435e2190a0820d02d398b1a60556e6cae509fb9806cad896fc91ca477f7721ad508dc40cd3723fe77d55a568d65387b5345f4ab3447f1003be48f6f9478c  tes3cmd.0.40-PRE-RELEASE-2-win.zip" | sha512sum -c
     # We have to catch this error since unzip complains about the folder separators and it causes a nonzero exit
     unzip -qq tes3cmd.0.40-PRE-RELEASE-2-win.zip || printf ""
     mv tes3cmd.0.40-PRE-RELEASE-2/tes3cmd.0.40-PRE-RELEASE-2.exe ${_windows}/tes3cmd.exe
